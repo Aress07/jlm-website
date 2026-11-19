@@ -1,9 +1,20 @@
 import { z } from "zod";
+import { toJsDate } from "@/lib/utils/firestore-date";
 
 /**
  * Single source of truth for types (master plan Section 5 / Section 3 "Conventions").
  * Every external input (API routes, admin writes) validates against one of these.
  */
+
+/**
+ * A date field read back from Firestore: either a Timestamp (written from
+ * a JS Date) or a plain string (written by scripts/seed.ts from JSON). See
+ * src/lib/utils/firestore-date.ts.
+ */
+const firestoreDate = z.preprocess(
+  (val) => toJsDate(val) ?? val,
+  z.coerce.date(),
+);
 
 export const localizedSchema = z.object({
   fr: z.string().min(1),
@@ -94,8 +105,8 @@ export const postSchema = z.object({
   cover: z.string().optional(),
   tags: z.array(z.string()).default([]),
   projectSlug: z.string().optional(),
-  publishAt: z.coerce.date(),
-  expiresAt: z.coerce.date().optional(),
+  publishAt: firestoreDate,
+  expiresAt: firestoreDate.optional(),
   sponsorId: z.string().optional(),
   pinned: z.boolean().default(false),
   published: z.boolean().default(false),
@@ -111,8 +122,8 @@ export const campaignSchema = z.object({
   story: localizedSchema,
   goalMAD: z.number().positive(),
   receivedMAD: z.number().nonnegative().default(0),
-  startsAt: z.coerce.date(),
-  endsAt: z.coerce.date(),
+  startsAt: firestoreDate,
+  endsAt: firestoreDate,
   featured: z.boolean().default(false),
   cover: z.string().optional(),
   breakdown: z
@@ -161,11 +172,11 @@ export const pledgeSchema = z.object({
   kind: z.enum(["money", "in-kind"]),
   inKindDescription: z.string().optional(),
   status: z.enum(["pledged", "received", "cancelled"]),
-  createdAt: z.coerce.date(),
-  receivedAt: z.coerce.date().optional(),
+  createdAt: firestoreDate,
+  receivedAt: firestoreDate.optional(),
   locale: z.enum(["fr", "ar", "en"]),
   updatedBy: z.string().optional(),
-  updatedAt: z.coerce.date().optional(),
+  updatedAt: firestoreDate.optional(),
 });
 export type Pledge = z.infer<typeof pledgeSchema>;
 

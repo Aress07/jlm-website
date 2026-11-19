@@ -23,6 +23,11 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// ISR floor so a Firestore edit shows up within a minute even without an
+// on-demand revalidatePath/revalidateTag call (master plan Section 8.3).
+// Applies to every page under [locale] unless a page sets its own.
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)

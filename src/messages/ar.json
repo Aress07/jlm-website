@@ -55,5 +55,36 @@
   },
   "fallback": {
     "translationInProgress": "الترجمة قيد الإنجاز"
+  },
+  "donate": {
+    "title": "تبرع",
+    "intro": "كل تبرع يساعدنا على الاستمرار في أعمالنا التضامنية والبيئية وريادة الأعمال الاجتماعية.",
+    "activeCampaigns": "الحملات الجارية",
+    "pastCampaigns": "الحملات السابقة",
+    "noActiveCampaigns": "لا توجد حملة مفتوحة حالياً. تواصل معنا للتبرع.",
+    "disabledNotice": "التبرع عبر الموقع غير متاح بعد. تواصل معنا للتبرع.",
+    "amountLabel": "المبلغ (درهم)",
+    "customAmount": "مبلغ آخر",
+    "inKind": "تبرع عيني",
+    "inKindDescriptionLabel": "صف تبرعك (أشياء، تسليم أو استلام)",
+    "donorNameLabel": "اسمك (اختياري)",
+    "anonymousLabel": "تبرع بدون ذكر الاسم",
+    "emailLabel": "البريد الإلكتروني",
+    "phoneLabel": "الهاتف",
+    "messageLabel": "رسالة (اختياري)",
+    "consentLabel": "أوافق على سياسة الخصوصية",
+    "submit": "تأكيد تبرعي",
+    "submitting": "جاري الإرسال...",
+    "campaignEndedNotice": "انتهت هذه الحملة. شكراً على دعمكم!",
+    "seeNextCampaign": "عرض الحملة القادمة",
+    "breakdownTitle": "فيما سيُستخدم تبرعك",
+    "authorizationNotice": "ترخيص جمع التبرعات: {authority}، رقم {number} ({date})",
+    "confirmationTitle": "شكراً على تبرعكم",
+    "referenceLabel": "رمز تبرعك",
+    "referenceInstruction": "اكتب هذا الرمز في تفاصيل حوالتك البنكية.",
+    "shareCampaign": "مشاركة هذه الحملة",
+    "copy": "نسخ",
+    "copied": "تم النسخ!",
+    "viewCampaign": "عرض الحملة"
   }
 }

@@ -1,9 +1,9 @@
 "use client";
 
-import { getApps, initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
+import { getApps, initializeApp, type FirebaseApp } from "firebase/app";
+import { getFirestore, type Firestore } from "firebase/firestore";
+import { getAuth, type Auth } from "firebase/auth";
+import { getStorage, type FirebaseStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,9 +13,37 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-export const firebaseApp = getApps().length
-  ? getApps()[0]
-  : initializeApp(firebaseConfig);
-export const db = getFirestore(firebaseApp);
-export const auth = getAuth(firebaseApp);
-export const storage = getStorage(firebaseApp);
+export function isFirebaseConfigured(): boolean {
+  return Boolean(firebaseConfig.apiKey && firebaseConfig.projectId);
+}
+
+// `getAuth`/`getFirestore`/`getStorage` validate config synchronously and
+// throw immediately when NEXT_PUBLIC_FIREBASE_* isn't set — which would
+// crash any page that imports this module at all (e.g. the admin login
+// page) rather than just the feature that needs it. Lazy getters let
+// callers check `isFirebaseConfigured()` first and show a clear message
+// instead of a hard crash.
+let app: FirebaseApp | undefined;
+function getFirebaseApp(): FirebaseApp {
+  if (!app)
+    app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+  return app;
+}
+
+let dbInstance: Firestore | undefined;
+export function getClientDb(): Firestore {
+  if (!dbInstance) dbInstance = getFirestore(getFirebaseApp());
+  return dbInstance;
+}
+
+let authInstance: Auth | undefined;
+export function getClientAuth(): Auth {
+  if (!authInstance) authInstance = getAuth(getFirebaseApp());
+  return authInstance;
+}
+
+let storageInstance: FirebaseStorage | undefined;
+export function getClientStorage(): FirebaseStorage {
+  if (!storageInstance) storageInstance = getStorage(getFirebaseApp());
+  return storageInstance;
+}

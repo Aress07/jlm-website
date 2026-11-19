@@ -8,3 +8,5 @@ Anything requested that is not in `JLM_PHASE3_DEMO_EXECUTION_PLAN.md` Section 2'
 - Weekly link-checker GitHub Action for the 8 external platforms (master plan Section 8.3, "nice to have" — not required for the Gate 3 AC, just re-test manually before the 20 and 24 Nov checkpoints).
 - `stylelint-use-logical` for full raw-CSS logical-property coverage (current lint is a grep-based script; see `docs/DECISIONS.md`).
 - Weekly Firestore export to Storage (master plan Section 9, "backups" — Phase 4/launch concern).
+- Shared (non-in-memory) rate-limit store for `/api/pledges`, `/api/contact`, `/api/join` if Netlify ever runs them as multiple concurrent function instances — see `src/lib/security/rate-limit.ts`.
+- Wire `src/lib/analytics/track.ts` to Cloudflare Web Analytics (or equivalent cookie-less tool, master plan Section 2) — currently a dev-only console.log stub so call sites exist now.

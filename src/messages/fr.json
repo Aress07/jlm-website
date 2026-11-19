@@ -55,5 +55,36 @@
   },
   "fallback": {
     "translationInProgress": "Traduction en cours"
+  },
+  "donate": {
+    "title": "Faire un don",
+    "intro": "Chaque don nous permet de poursuivre nos actions de solidarité, d'environnement et d'entrepreneuriat social.",
+    "activeCampaigns": "Campagnes en cours",
+    "pastCampaigns": "Campagnes passées",
+    "noActiveCampaigns": "Aucune campagne n'est ouverte pour le moment. Contactez-nous pour donner.",
+    "disabledNotice": "Les dons en ligne ne sont pas encore ouverts. Contactez-nous pour faire un don.",
+    "amountLabel": "Montant (MAD)",
+    "customAmount": "Autre montant",
+    "inKind": "Faire un don en nature",
+    "inKindDescriptionLabel": "Décrivez votre don (objets, dépôt ou collecte)",
+    "donorNameLabel": "Votre nom (optionnel)",
+    "anonymousLabel": "Faire un don anonyme",
+    "emailLabel": "Email",
+    "phoneLabel": "Téléphone",
+    "messageLabel": "Message (optionnel)",
+    "consentLabel": "J'accepte la politique de confidentialité",
+    "submit": "Confirmer ma promesse de don",
+    "submitting": "Envoi en cours...",
+    "campaignEndedNotice": "Cette campagne est terminée. Merci pour votre soutien !",
+    "seeNextCampaign": "Voir la prochaine campagne",
+    "breakdownTitle": "À quoi servira votre don",
+    "authorizationNotice": "Autorisation de collecte : {authority}, n° {number} ({date})",
+    "confirmationTitle": "Merci pour votre promesse de don",
+    "referenceLabel": "Votre référence",
+    "referenceInstruction": "Indiquez cette référence dans le libellé de votre virement.",
+    "shareCampaign": "Partager cette campagne",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "viewCampaign": "Voir la campagne"
   }
 }

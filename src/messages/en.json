@@ -55,5 +55,36 @@
   },
   "fallback": {
     "translationInProgress": "Translation in progress"
+  },
+  "donate": {
+    "title": "Donate",
+    "intro": "Every gift lets us keep our solidarity, environment and social entrepreneurship actions going.",
+    "activeCampaigns": "Active campaigns",
+    "pastCampaigns": "Past campaigns",
+    "noActiveCampaigns": "No campaign is open right now. Contact us to give.",
+    "disabledNotice": "Online giving isn't open yet. Contact us to give.",
+    "amountLabel": "Amount (MAD)",
+    "customAmount": "Other amount",
+    "inKind": "Give in kind",
+    "inKindDescriptionLabel": "Describe your gift (items, drop-off or pickup)",
+    "donorNameLabel": "Your name (optional)",
+    "anonymousLabel": "Give anonymously",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "messageLabel": "Message (optional)",
+    "consentLabel": "I agree to the privacy policy",
+    "submit": "Confirm my pledge",
+    "submitting": "Submitting...",
+    "campaignEndedNotice": "This campaign has ended. Thank you for your support!",
+    "seeNextCampaign": "See the next campaign",
+    "breakdownTitle": "What your gift will fund",
+    "authorizationNotice": "Fundraising authorization: {authority}, No. {number} ({date})",
+    "confirmationTitle": "Thank you for your pledge",
+    "referenceLabel": "Your reference",
+    "referenceInstruction": "Write this reference in your bank transfer label.",
+    "shareCampaign": "Share this campaign",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "viewCampaign": "View campaign"
   }
 }

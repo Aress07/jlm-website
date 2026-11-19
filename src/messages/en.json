@@ -86,5 +86,35 @@
     "copy": "Copy",
     "copied": "Copied!",
     "viewCampaign": "View campaign"
+  },
+  "projects": {
+    "title": "Our projects",
+    "filterAll": "All",
+    "statsTitle": "Key figures",
+    "galleryTitle": "Gallery",
+    "platformsTitle": "Platforms and tools",
+    "supportProject": "Support this project",
+    "relatedNews": "Related news",
+    "noProjects": "No project yet."
+  },
+  "poles": {
+    "projectsTitle": "This pôle's projects",
+    "statsTitle": "Pôle figures"
+  },
+  "platforms": {
+    "title": "Our platforms",
+    "subtitle": "8 platforms and games, and 3 prototypes built by our members.",
+    "filterAll": "All",
+    "filterPlatform": "Platforms",
+    "filterGame": "Games",
+    "filterWebsite": "Websites",
+    "filterShop": "Shops",
+    "filterPrototype": "Prototypes",
+    "openPlatform": "Open platform",
+    "prototypesTitle": "Prototypes",
+    "statusLive": "Live",
+    "statusBeta": "Beta",
+    "statusInDevelopment": "In development",
+    "statusPrototype": "Prototype"
   }
 }

@@ -23,6 +23,16 @@ Carried over from `JLM_WEBSITE_EXECUTION_PLAN.md` Section 14, plus the Phase 3 c
 - **24 Nov Arabic review (risk #8):** not sent, not reviewed. Interface and content Arabic strings render with the French-fallback + "Traduction en cours" note where AR text is missing.
 - **23 Nov legal/CNDP question (risk #10):** not transferred to anyone, because this session has no legal contact to transfer it to. The board must pick this up directly.
 
+## Platform link check (risk #12), run 2026-11-19
+
+Automated check of the 9 external platform/shop URLs in `content/seed/platforms.json` (the 3 prototypes have no public URL):
+
+- **`https://godem.ensamien.com/` (GODEM) — SSL certificate has EXPIRED.** Browsers will show a security warning or block the page outright. GODEM is the platform behind journey J4 and one of the highest-traffic links — this needs the project lead/board to renew the certificate before Gate 3, not just a retest.
+- **`https://web-production-2bc58.up.railway.app/` (Get a Plet digital shelter) — returns 404 Not Found.** The Railway deployment appears to be down or removed. Seeded as `status: "in-development"` already, but it should not be linked publicly if it 404s; re-check with the Get a Plet project lead.
+- The other 7 URLs (Marche Verte, Discover Morocco quiz, heritage site, Waraqa, Golden Wishes tree, Recycle It, the Abdelhaq flowers shop) all returned HTTP 200.
+
+Re-run before the 20 and 24 Nov checkpoints per the day-by-day plan.
+
 ## TODO(board) markers in the codebase
 
 Grep for `TODO(board)` to find every in-code placeholder; each one should also have a matching line above or be added here if new.

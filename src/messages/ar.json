@@ -86,5 +86,35 @@
     "copy": "نسخ",
     "copied": "تم النسخ!",
     "viewCampaign": "عرض الحملة"
+  },
+  "projects": {
+    "title": "مشاريعنا",
+    "filterAll": "الكل",
+    "statsTitle": "أرقام رئيسية",
+    "galleryTitle": "معرض الصور",
+    "platformsTitle": "المنصات والأدوات",
+    "supportProject": "دعم هذا المشروع",
+    "relatedNews": "أخبار ذات صلة",
+    "noProjects": "لا يوجد مشروع حالياً."
+  },
+  "poles": {
+    "projectsTitle": "مشاريع هذا القطب",
+    "statsTitle": "أرقام القطب"
+  },
+  "platforms": {
+    "title": "منصاتنا",
+    "subtitle": "8 منصات وألعاب، و3 نماذج أولية طورها أعضاؤنا.",
+    "filterAll": "الكل",
+    "filterPlatform": "منصات",
+    "filterGame": "ألعاب",
+    "filterWebsite": "مواقع",
+    "filterShop": "متاجر",
+    "filterPrototype": "نماذج أولية",
+    "openPlatform": "فتح المنصة",
+    "prototypesTitle": "نماذج أولية",
+    "statusLive": "متاح",
+    "statusBeta": "تجريبي",
+    "statusInDevelopment": "قيد التطوير",
+    "statusPrototype": "نموذج أولي"
   }
 }

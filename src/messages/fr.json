@@ -86,5 +86,35 @@
     "copy": "Copier",
     "copied": "Copié !",
     "viewCampaign": "Voir la campagne"
+  },
+  "projects": {
+    "title": "Nos projets",
+    "filterAll": "Tous",
+    "statsTitle": "Chiffres clés",
+    "galleryTitle": "Galerie",
+    "platformsTitle": "Plateformes et outils",
+    "supportProject": "Soutenir ce projet",
+    "relatedNews": "Actualités liées",
+    "noProjects": "Aucun projet pour le moment."
+  },
+  "poles": {
+    "projectsTitle": "Projets de ce pôle",
+    "statsTitle": "Chiffres du pôle"
+  },
+  "platforms": {
+    "title": "Nos plateformes",
+    "subtitle": "8 plateformes et jeux, et 3 prototypes développés par nos membres.",
+    "filterAll": "Tout",
+    "filterPlatform": "Plateformes",
+    "filterGame": "Jeux",
+    "filterWebsite": "Sites",
+    "filterShop": "Boutiques",
+    "filterPrototype": "Prototypes",
+    "openPlatform": "Ouvrir la plateforme",
+    "prototypesTitle": "Prototypes",
+    "statusLive": "En ligne",
+    "statusBeta": "Bêta",
+    "statusInDevelopment": "En développement",
+    "statusPrototype": "Prototype"
   }
 }

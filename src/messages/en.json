@@ -116,5 +116,63 @@
     "statusBeta": "Beta",
     "statusInDevelopment": "In development",
     "statusPrototype": "Prototype"
+  },
+  "about": {
+    "title": "About JLM",
+    "missionTitle": "Our mission",
+    "polesTitle": "Our three pôles",
+    "annualReport": "Download the annual report"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "A question, a partnership proposal, a press inquiry? Write to us.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "topicLabel": "Topic",
+    "topicGeneral": "General",
+    "topicSponsorship": "Sponsorship",
+    "topicPress": "Press",
+    "topicVolunteer": "Volunteer",
+    "topicBeneficiary": "Beneficiary",
+    "messageLabel": "Message",
+    "consentLabel": "I agree to the privacy policy",
+    "submit": "Send",
+    "submitting": "Sending...",
+    "successTitle": "Message sent",
+    "successBody": "Thank you, we'll reply soon.",
+    "whatsapp": "WhatsApp"
+  },
+  "join": {
+    "title": "Join us",
+    "intro": "JLM is 135 active members across 3 pôles. Join us!",
+    "closedNotice": "Applications are closed right now. Contact us to be notified when they reopen.",
+    "nameLabel": "Name",
+    "schoolLabel": "School",
+    "yearLabel": "Year of study",
+    "poleLabel": "Pôle you're interested in",
+    "motivationLabel": "Your motivation",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "consentLabel": "I agree to the privacy policy",
+    "submit": "Submit my application",
+    "submitting": "Sending...",
+    "successTitle": "Application sent",
+    "successBody": "Thank you! We'll get back to you soon.",
+    "juniorTitle": "JLM Junior",
+    "juniorBody": "A dedicated program for high-school students who want to get involved now.",
+    "volunteerTitle": "One-off volunteering",
+    "volunteerBody": "Not ready for a long-term commitment? Contact us for a one-off action."
+  },
+  "partners": {
+    "title": "Our partners",
+    "institutional": "Institutional partners",
+    "sponsors": "Sponsors",
+    "suppliers": "Suppliers",
+    "becomePartner": "Become a partner",
+    "noPartners": "Our partner list will be published soon."
+  },
+  "legal": {
+    "privacyTitle": "Privacy policy",
+    "noticeTitle": "Legal notice"
   }
 }

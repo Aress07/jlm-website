@@ -116,5 +116,63 @@
     "statusBeta": "تجريبي",
     "statusInDevelopment": "قيد التطوير",
     "statusPrototype": "نموذج أولي"
+  },
+  "about": {
+    "title": "من نحن",
+    "missionTitle": "مهمتنا",
+    "polesTitle": "أقطابنا الثلاثة",
+    "annualReport": "تحميل التقرير السنوي"
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "intro": "سؤال، عرض شراكة، أو استفسار صحفي؟ اكتب لنا.",
+    "nameLabel": "الاسم",
+    "emailLabel": "البريد الإلكتروني",
+    "topicLabel": "الموضوع",
+    "topicGeneral": "عام",
+    "topicSponsorship": "شراكة",
+    "topicPress": "صحافة",
+    "topicVolunteer": "تطوع",
+    "topicBeneficiary": "مستفيد",
+    "messageLabel": "الرسالة",
+    "consentLabel": "أوافق على سياسة الخصوصية",
+    "submit": "إرسال",
+    "submitting": "جاري الإرسال...",
+    "successTitle": "تم إرسال الرسالة",
+    "successBody": "شكراً، سنرد عليك قريباً.",
+    "whatsapp": "واتساب"
+  },
+  "join": {
+    "title": "انضم إلينا",
+    "intro": "جيلام تضم 135 عضواً نشيطاً في 3 أقطاب. انضم إلينا!",
+    "closedNotice": "الترشيحات مغلقة حالياً. تواصل معنا لإعلامك عند إعادة الفتح.",
+    "nameLabel": "الاسم",
+    "schoolLabel": "المدرسة",
+    "yearLabel": "سنة الدراسة",
+    "poleLabel": "القطب الذي يهمك",
+    "motivationLabel": "دافعك",
+    "phoneLabel": "الهاتف",
+    "emailLabel": "البريد الإلكتروني",
+    "consentLabel": "أوافق على سياسة الخصوصية",
+    "submit": "إرسال طلبي",
+    "submitting": "جاري الإرسال...",
+    "successTitle": "تم إرسال الطلب",
+    "successBody": "شكراً! سنعود إليك قريباً.",
+    "juniorTitle": "جيلام جونيور",
+    "juniorBody": "برنامج خاص بطلاب الثانوي الراغبين في الانخراط من الآن.",
+    "volunteerTitle": "تطوع لمرة واحدة",
+    "volunteerBody": "لا تريد الانخراط على المدى الطويل؟ تواصل معنا لعمل تطوعي لمرة واحدة."
+  },
+  "partners": {
+    "title": "شركاؤنا",
+    "institutional": "شركاء مؤسساتيون",
+    "sponsors": "ممولون",
+    "suppliers": "موردون",
+    "becomePartner": "كن شريكاً",
+    "noPartners": "قائمة شركائنا ستُنشر قريباً."
+  },
+  "legal": {
+    "privacyTitle": "سياسة الخصوصية",
+    "noticeTitle": "الإشعار القانوني"
   }
 }

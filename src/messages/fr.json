@@ -116,5 +116,63 @@
     "statusBeta": "Bêta",
     "statusInDevelopment": "En développement",
     "statusPrototype": "Prototype"
+  },
+  "about": {
+    "title": "À propos de JLM",
+    "missionTitle": "Notre mission",
+    "polesTitle": "Nos trois pôles",
+    "annualReport": "Télécharger le rapport annuel"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Une question, une proposition de partenariat, un sujet presse ? Écrivez-nous.",
+    "nameLabel": "Nom",
+    "emailLabel": "Email",
+    "topicLabel": "Sujet",
+    "topicGeneral": "Général",
+    "topicSponsorship": "Partenariat",
+    "topicPress": "Presse",
+    "topicVolunteer": "Bénévolat",
+    "topicBeneficiary": "Bénéficiaire",
+    "messageLabel": "Message",
+    "consentLabel": "J'accepte la politique de confidentialité",
+    "submit": "Envoyer",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Message envoyé",
+    "successBody": "Merci, nous vous répondrons rapidement.",
+    "whatsapp": "WhatsApp"
+  },
+  "join": {
+    "title": "Nous rejoindre",
+    "intro": "JLM, c'est 135 membres actifs répartis en 3 pôles. Rejoignez-nous !",
+    "closedNotice": "Les candidatures sont fermées pour le moment. Contactez-nous pour être informé de la prochaine ouverture.",
+    "nameLabel": "Nom",
+    "schoolLabel": "École",
+    "yearLabel": "Année d'étude",
+    "poleLabel": "Pôle qui vous intéresse",
+    "motivationLabel": "Votre motivation",
+    "phoneLabel": "Téléphone",
+    "emailLabel": "Email",
+    "consentLabel": "J'accepte la politique de confidentialité",
+    "submit": "Envoyer ma candidature",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Candidature envoyée",
+    "successBody": "Merci ! Nous reviendrons vers vous rapidement.",
+    "juniorTitle": "JLM Junior",
+    "juniorBody": "Un programme spécifique pour les lycéens qui veulent s'engager dès maintenant.",
+    "volunteerTitle": "Bénévolat ponctuel",
+    "volunteerBody": "Vous ne voulez pas vous engager à long terme ? Contactez-nous pour une action ponctuelle."
+  },
+  "partners": {
+    "title": "Nos partenaires",
+    "institutional": "Partenaires institutionnels",
+    "sponsors": "Sponsors",
+    "suppliers": "Fournisseurs",
+    "becomePartner": "Devenir partenaire",
+    "noPartners": "La liste de nos partenaires sera bientôt publiée."
+  },
+  "legal": {
+    "privacyTitle": "Politique de confidentialité",
+    "noticeTitle": "Mentions légales"
   }
 }

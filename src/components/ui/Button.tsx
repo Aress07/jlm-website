@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils/cn";
-import Link from "next/link";
+import { Link } from "@/lib/i18n/navigation";
 import type { ComponentProps } from "react";
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";

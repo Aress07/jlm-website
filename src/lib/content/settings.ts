@@ -12,6 +12,7 @@ export type PublicSettings = {
     swift?: string;
   };
   donationsEnabled: boolean;
+  joinOpen: boolean;
 };
 
 export async function getPublicSettings(): Promise<PublicSettings | null> {

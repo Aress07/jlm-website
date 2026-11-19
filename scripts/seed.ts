@@ -55,6 +55,7 @@ async function main() {
       social: settings.social,
       bank: settings.bank,
       donationsEnabled: settings.donationsEnabled,
+      joinOpen: settings.joinOpen,
     },
     { merge: true },
   );

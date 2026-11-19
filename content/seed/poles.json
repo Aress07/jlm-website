@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "solidarity",
+    "name": { "fr": "Solidarité" },
+    "tagline": {
+      "fr": "Éducation, lecture, souhaits d'enfants et la relève de demain"
+    },
+    "description": {
+      "fr": "Le pôle Solidarité réunit cinq projets : SmartED (éducation par la technologie et le jeu), GODEM (orientation scolaire et professionnelle), IQRAA (lecture et écriture), Golden Wishes (souhaits d'enfants en service d'oncologie) et JLM Junior (formation des lycéens)."
+    },
+    "color": "#F97316",
+    "icon": "heart-handshake",
+    "order": 1
+  },
+  {
+    "slug": "environment",
+    "name": { "fr": "Environnement" },
+    "tagline": { "fr": "L'écologie rencontre l'innovation" },
+    "description": {
+      "fr": "Le pôle Environnement réunit trois projets : Greenovators (nettoyages et agent IA de nettoyage de données), Recycle It (ateliers de réemploi) et Get a Plet (bien-être animal)."
+    },
+    "color": "#16A34A",
+    "icon": "leaf",
+    "order": 2
+  },
+  {
+    "slug": "social-entrepreneurship",
+    "name": { "fr": "Entrepreneuriat Social" },
+    "tagline": { "fr": "Accompagner la construction d'une activité" },
+    "description": {
+      "fr": "Le pôle Entrepreneuriat Social porte le projet Handmade B'lkhir, qui accompagne des entrepreneurs dans le développement de leur propre activité."
+    },
+    "color": "#2563EB",
+    "icon": "briefcase",
+    "order": 3
+  }
+]

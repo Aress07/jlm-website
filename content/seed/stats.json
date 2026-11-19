@@ -1,0 +1,58 @@
+[
+  {
+    "key": "beneficiaries",
+    "label": { "fr": "bénéficiaires" },
+    "value": 11986,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "km-traveled",
+    "label": { "fr": "km parcourus" },
+    "value": 7256,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "technical-solutions",
+    "label": { "fr": "solutions techniques" },
+    "value": 10,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "active-members",
+    "label": { "fr": "membres actifs" },
+    "value": 135,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "projects-in-poles",
+    "label": { "fr": "projets dans 3 pôles" },
+    "value": 9,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "caravans",
+    "label": { "fr": "caravanes" },
+    "value": 2,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "members-trained-since-2014",
+    "label": { "fr": "membres formés depuis 2014 (plus de)" },
+    "value": 600,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  },
+  {
+    "key": "lives-touched-since-2014",
+    "label": { "fr": "vies touchées depuis 2014 (environ)" },
+    "value": 12000,
+    "source": "Rapport annuel JLM 2026",
+    "asOf": "2026"
+  }
+]

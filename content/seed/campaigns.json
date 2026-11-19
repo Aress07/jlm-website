@@ -1,0 +1,76 @@
+[
+  {
+    "slug": "ramadan-2027",
+    "kind": "ramadan",
+    "title": { "fr": "Paniers alimentaires Ramadan 2027" },
+    "summary": {
+      "fr": "TODO(board): résumé et objectif à confirmer avant publication."
+    },
+    "story": {
+      "fr": "L'an dernier, l'action AZUL a permis de distribuer 76 paniers alimentaires, pour plus de 22 000 DH remis à des familles. TODO(board): objectif et détail du panier de cette année à confirmer avant publication."
+    },
+    "goalMAD": 1,
+    "receivedMAD": 0,
+    "startsAt": "2027-02-01T00:00:00.000Z",
+    "endsAt": "2027-03-01T00:00:00.000Z",
+    "featured": false,
+    "breakdown": [],
+    "inKindAccepted": true,
+    "published": false
+  },
+  {
+    "slug": "adha-2027",
+    "kind": "adha",
+    "title": { "fr": "Aide Aïd al-Adha 2027" },
+    "summary": {
+      "fr": "TODO(board): résumé et objectif à confirmer avant publication."
+    },
+    "story": { "fr": "TODO(board): détail à confirmer avant publication." },
+    "goalMAD": 1,
+    "receivedMAD": 0,
+    "startsAt": "2027-05-01T00:00:00.000Z",
+    "endsAt": "2027-06-01T00:00:00.000Z",
+    "featured": false,
+    "breakdown": [],
+    "inKindAccepted": true,
+    "published": false
+  },
+  {
+    "slug": "winter-caravan-2027",
+    "kind": "caravan",
+    "title": { "fr": "Caravane d'hiver 2027" },
+    "summary": {
+      "fr": "TODO(board): résumé et objectif à confirmer avant publication."
+    },
+    "story": {
+      "fr": "La caravane d'hiver Al Haouz a mobilisé 11 000 DH pour 55 familles, plus de 155 personnes. TODO(board): destination et objectif de cette année à confirmer."
+    },
+    "goalMAD": 1,
+    "receivedMAD": 0,
+    "startsAt": "2027-01-01T00:00:00.000Z",
+    "endsAt": "2027-02-01T00:00:00.000Z",
+    "featured": false,
+    "breakdown": [],
+    "inKindAccepted": true,
+    "published": false
+  },
+  {
+    "slug": "well-project-2027",
+    "kind": "well",
+    "title": { "fr": "Projet de puits 2027" },
+    "summary": {
+      "fr": "TODO(board): résumé et objectif à confirmer avant publication."
+    },
+    "story": {
+      "fr": "Le puits Al Haouz (60 000 DH, 30 m de profondeur) a desservi 300 familles, 1 200 personnes. TODO(board): localisation et objectif de cette année à confirmer."
+    },
+    "goalMAD": 1,
+    "receivedMAD": 0,
+    "startsAt": "2027-01-01T00:00:00.000Z",
+    "endsAt": "2027-12-31T00:00:00.000Z",
+    "featured": false,
+    "breakdown": [],
+    "inKindAccepted": false,
+    "published": false
+  }
+]

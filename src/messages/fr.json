@@ -1,0 +1,59 @@
+{
+  "common": {
+    "siteName": "JLM ENSAM Casablanca",
+    "motto": "Ce qu'on transmet reste",
+    "skipToContent": "Aller au contenu",
+    "learnMore": "En savoir plus",
+    "seeAll": "Voir tout",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "openInNewTab": "Ouvre dans un nouvel onglet"
+  },
+  "nav": {
+    "about": "À propos",
+    "projects": "Projets",
+    "impact": "Impact",
+    "news": "Actualités",
+    "platforms": "Plateformes",
+    "donate": "Faire un don",
+    "join": "Nous rejoindre",
+    "partners": "Partenaires",
+    "contact": "Contact",
+    "legal": "Mentions légales",
+    "idCard": "Carte d'identité",
+    "menu": "Menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "locale": {
+    "fr": "Français",
+    "ar": "العربية",
+    "en": "English",
+    "switchLabel": "Changer de langue"
+  },
+  "footer": {
+    "missionLine": "Jeunes Leaders Marocains, association humanitaire étudiante de l'ENSAM Casablanca, active depuis 2014.",
+    "rightsReserved": "Tous droits réservés."
+  },
+  "home": {
+    "heroSubline": "L'association humanitaire étudiante de l'ENSAM Casablanca, active depuis 2014.",
+    "discoverProjects": "Découvrir nos projets",
+    "statsAsOf": "Chiffres du rapport annuel {year}",
+    "polesTitle": "Nos pôles",
+    "featuredProjectsTitle": "Projets phares",
+    "flagshipTitle": "Actions phares",
+    "newsTitle": "Dernières actualités",
+    "platformsTitle": "Nos plateformes",
+    "partnersTitle": "Nos partenaires",
+    "finalCtaTitle": "Rejoignez-nous, donnez, ou contactez-nous"
+  },
+  "idCard": {
+    "saveContact": "Enregistrer le contact",
+    "share": "Partager",
+    "seeFullSite": "Voir le site complet",
+    "print": "Version imprimable"
+  },
+  "fallback": {
+    "translationInProgress": "Traduction en cours"
+  }
+}

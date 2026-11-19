@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "focus-6",
+    "title": { "fr": "FOCUS 6.0" },
+    "year": 2026,
+    "investedMAD": 10000,
+    "people": 3,
+    "summary": {
+      "fr": "Thème « Last Day on Earth », budget de 10 000 DH, 3 lauréats équipés."
+    },
+    "photos": []
+  },
+  {
+    "slug": "azul",
+    "title": { "fr": "AZUL" },
+    "year": 2026,
+    "investedMAD": 22000,
+    "summary": {
+      "fr": "76 paniers alimentaires, plus de 22 000 DH remis à des familles."
+    },
+    "photos": []
+  },
+  {
+    "slug": "winter-caravan-al-haouz",
+    "title": { "fr": "Caravane d'hiver Al Haouz" },
+    "year": 2026,
+    "investedMAD": 11000,
+    "people": 155,
+    "summary": {
+      "fr": "11 000 DH investis, 55 familles, plus de 155 personnes."
+    },
+    "photos": []
+  },
+  {
+    "slug": "caravan-lina-4-tizi",
+    "title": { "fr": "Caravane Lina 4.0, douar Tizi" },
+    "year": 2026,
+    "investedMAD": 70000,
+    "people": 40,
+    "summary": {
+      "fr": "70 000 DH investis, 3 jours, école repeinte, mosquée rénovée, 40 élèves (cours, certificats, sacs d'école)."
+    },
+    "photos": []
+  },
+  {
+    "slug": "al-haouz-well",
+    "title": { "fr": "Puits Al Haouz" },
+    "year": 2026,
+    "investedMAD": 60000,
+    "people": 1200,
+    "summary": {
+      "fr": "60 000 DH, 30 m de profondeur, 300 familles, 1 200 personnes."
+    },
+    "photos": []
+  }
+]

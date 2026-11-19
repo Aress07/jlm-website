@@ -1,0 +1,23 @@
+# Decisions log
+
+One paragraph per decision: context, decision, alternatives. Newest first.
+
+## 2026-11-19 — Starting point was empty, not Gate-2-complete
+
+**Context:** Both plan documents (`JLM_WEBSITE_EXECUTION_PLAN.md`, `JLM_PHASE3_DEMO_EXECUTION_PLAN.md`) describe Gate 2 (i18n, Firebase, design system, static Home/ID card on staging) as already passed, with Phase 3 four days in. The actual `jlm-website` GitHub repo contained only a default `.gitignore` and `LICENSE` — no code, no Gate 1 or Gate 2 work. **Decision:** treat this as a from-scratch build that compresses the Phase 1 foundation task (T1.1) and the Phase 2 `P2 dev` foundation tasks (T2.6–T2.12) into the start of this session, then continue into Phase 3 in the order the day-by-day plan gives. **Alternative considered:** refuse to proceed until the real Gate 2 artifacts are found — rejected because the user confirmed this is the right repo and asked to continue the work here.
+
+## 2026-11-19 — Next.js 16 breaking changes
+
+**Context:** `create-next-app@latest` installed Next.js 16.4.6, which the framework's own `AGENTS.md` flags as having breaking changes versus older training data. **Decision:** (1) `middleware.ts` is renamed `proxy.ts` and exports a `proxy` function — `src/proxy.ts` wraps `next-intl`'s middleware and re-exports it under that name. (2) There is no single `app/layout.tsx`; per Next's "multiple root layouts" convention, `src/app/[locale]/layout.tsx` and `src/app/admin/layout.tsx` are each their own root layout (each defines its own `<html>`/`<body>`), which is also how the master plan's locale-prefixed public site and non-localized `/admin` can have different `lang`/`dir` without one layout fighting the other. (3) Disabled the `cacheComponents`/`partialPrefetching` experimental flags that `create-next-app` turned on by default — they require wrapping every dynamic data read in Suspense or `"use cache"`, which is a different data-fetching model than the plan assumes (plain ISR + `revalidateTag` from `/api/revalidate`, Section 8.3). **Alternative considered:** adopt Cache Components now — rejected as unnecessary complexity for a 3-week build with a different intended caching model already specified.
+
+## 2026-11-19 — CSS logical-property lint simplified
+
+**Context:** the master plan (Section 3) asks for "a lint rule (stylelint or ESLint plugin for Tailwind)" forbidding physical CSS properties, to protect RTL (risk #5 in the register). A full custom stylelint/ESLint plugin is significant setup for a Tailwind-v4 project where almost all spacing is utility classes, not raw CSS. **Decision:** `scripts/check-logical-properties.ts`, run via `pnpm lint:logical` and wired into CI, greps `src/**/*.{ts,tsx,css}` for forbidden physical patterns (`ml-`, `mr-`, `pl-`, `pr-`, `left-`, `right-`, `text-left`, `text-right`, `margin-left`, etc.) and fails with file:line on a match. **Alternative considered:** `stylelint-use-logical` — left as a follow-up if the team wants stricter raw-CSS coverage later; logged in `docs/BACKLOG.md`.
+
+## 2026-11-19 — Dropped `unstable_cache` around Firestore reads
+
+**Context:** wrapping the content-layer Firestore reads (`src/lib/content/cache.ts`, `settings.ts`) in `next/cache`'s `unstable_cache` reproducibly crashed `pnpm dev` with `Error: Expected a suspended thenable. This is a bug in React.` as soon as a component using `next-intl`'s RSC hooks (`useTranslations`/`useLocale`) also awaited one of these cached reads — confirmed by removing `unstable_cache` and watching the crash disappear. This looks like a Next.js 16 / Turbopack / next-intl interaction bug, not something wrong in our code. **Decision:** read Firestore directly (plain `async` functions, no `unstable_cache`), and get "publish shows up within a minute" (Section 8.3's AC) from `/api/revalidate` calling `revalidatePath`/`revalidateTag` plus Next's normal per-request fetch instead. **Alternative considered:** pin an older Next.js 16 patch version or next-intl version — not attempted yet; revisit if this turns out to be a known, fixed upstream bug.
+
+## 2026-11-19 — Reference-code generator (risk #7)
+
+**Context:** register risk #7 requires the pledge reference generator to be collision-proof by design, not caught later. **Decision:** `JLM-{year}-{4 chars from a 32-symbol unambiguous alphabet}` (`ABCDEFGHJKMNPQRSTUVWXYZ23456789` — no `0/O/1/I/L`) gives 32⁴ ≈ 1.05M combinations per year; `generatePledgeReference` in `src/lib/validation/reference.ts` checks the candidate against Firestore and retries (bounded, throws after 10 attempts) rather than trusting entropy alone. Covered by a Vitest unit test asserting no collisions are produced against a mocked existing set.

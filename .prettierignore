@@ -1,0 +1,5 @@
+pnpm-lock.yaml
+.next/
+node_modules/
+JLM_WEBSITE_EXECUTION_PLAN.md
+JLM_PHASE3_DEMO_EXECUTION_PLAN.md

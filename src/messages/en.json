@@ -1,0 +1,59 @@
+{
+  "common": {
+    "siteName": "JLM ENSAM Casablanca",
+    "motto": "What we pass on, stays",
+    "skipToContent": "Skip to content",
+    "learnMore": "Learn more",
+    "seeAll": "See all",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "openInNewTab": "Opens in a new tab"
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "impact": "Impact",
+    "news": "News",
+    "platforms": "Platforms",
+    "donate": "Donate",
+    "join": "Join us",
+    "partners": "Partners",
+    "contact": "Contact",
+    "legal": "Legal",
+    "idCard": "ID card",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "locale": {
+    "fr": "Français",
+    "ar": "العربية",
+    "en": "English",
+    "switchLabel": "Switch language"
+  },
+  "footer": {
+    "missionLine": "Jeunes Leaders Marocains, the humanitarian student association of ENSAM Casablanca, active since 2014.",
+    "rightsReserved": "All rights reserved."
+  },
+  "home": {
+    "heroSubline": "The humanitarian student association of ENSAM Casablanca, active since 2014.",
+    "discoverProjects": "Discover our projects",
+    "statsAsOf": "Figures from the {year} annual report",
+    "polesTitle": "Our pôles",
+    "featuredProjectsTitle": "Featured projects",
+    "flagshipTitle": "Flagship actions",
+    "newsTitle": "Latest news",
+    "platformsTitle": "Our platforms",
+    "partnersTitle": "Our partners",
+    "finalCtaTitle": "Join us, give, or get in touch"
+  },
+  "idCard": {
+    "saveContact": "Save contact",
+    "share": "Share",
+    "seeFullSite": "See the full site",
+    "print": "Printable version"
+  },
+  "fallback": {
+    "translationInProgress": "Translation in progress"
+  }
+}

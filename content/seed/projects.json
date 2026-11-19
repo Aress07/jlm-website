@@ -1,0 +1,397 @@
+[
+  {
+    "slug": "smarted",
+    "poleSlug": "solidarity",
+    "name": { "fr": "SmartED" },
+    "tagline": { "fr": "L'éducation par la technologie, le jeu, l'expérience" },
+    "description": {
+      "fr": "Caravane scientifique, ateliers numériques, contenus pédagogiques et équipement offerts aux écoles rurales."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "children-this-year",
+        "value": 1160,
+        "label": { "fr": "enfants cette année" }
+      },
+      {
+        "key": "children-since-creation",
+        "value": 3900,
+        "label": { "fr": "enfants depuis la création (environ)" }
+      },
+      {
+        "key": "caravan-visitors",
+        "value": 17000,
+        "label": { "fr": "visiteurs de la caravane (plus de)" }
+      },
+      {
+        "key": "stand-children",
+        "value": 900,
+        "label": { "fr": "enfants aux stands" }
+      },
+      {
+        "key": "orphanage-children",
+        "value": 180,
+        "label": { "fr": "enfants d'un orphelinat" }
+      },
+      {
+        "key": "dar-taliba-girls",
+        "value": 80,
+        "label": { "fr": "filles de Dar Taliba" }
+      },
+      {
+        "key": "training-hours",
+        "value": 60,
+        "unit": { "fr": "h" },
+        "label": { "fr": "de formation numérique" }
+      },
+      {
+        "key": "computers-donated",
+        "value": 25,
+        "label": { "fr": "ordinateurs offerts" }
+      },
+      {
+        "key": "km-traveled",
+        "value": 1700,
+        "unit": { "fr": "km" },
+        "label": { "fr": "parcourus (environ)" }
+      },
+      {
+        "key": "budget-mad",
+        "value": 115000,
+        "unit": { "fr": "DH" },
+        "label": { "fr": "mobilisés" }
+      },
+      {
+        "key": "teaching-content-hours",
+        "value": 480,
+        "unit": { "fr": "h" },
+        "label": { "fr": "de contenu pédagogique (plus de)" }
+      }
+    ],
+    "platformIds": ["marche-verte", "quiz-maroc", "patrimoine-maroc"],
+    "published": true,
+    "order": 1
+  },
+  {
+    "slug": "godem",
+    "poleSlug": "solidarity",
+    "name": { "fr": "GODEM" },
+    "tagline": { "fr": "Le tuteur d'orientation des jeunes Marocains" },
+    "description": {
+      "fr": "De l'information de masse au conseil individuel : stands, consulting privé, suivi WhatsApp et une plateforme d'orientation ouverte jour et nuit."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "young-people-supported",
+        "value": 3500,
+        "label": { "fr": "jeunes accompagnés (environ)" }
+      },
+      {
+        "key": "km-traveled",
+        "value": 3400,
+        "unit": { "fr": "km" },
+        "label": { "fr": "parcourus (plus de)" }
+      },
+      {
+        "key": "forum-participants",
+        "value": 1500,
+        "label": {
+          "fr": "jeunes au Forum International de l'Étudiant (plus de)"
+        }
+      },
+      {
+        "key": "face-to-face",
+        "value": 2400,
+        "label": { "fr": "en face à face dans 9 établissements (environ)" }
+      },
+      {
+        "key": "private-consulting",
+        "value": 168,
+        "label": { "fr": "séances de consulting privé" }
+      },
+      {
+        "key": "whatsapp-pupils",
+        "value": 539,
+        "label": { "fr": "élèves dans les groupes WhatsApp" }
+      },
+      {
+        "key": "ensam-forums",
+        "value": 560,
+        "label": { "fr": "participations aux forums ENSAM" }
+      },
+      {
+        "key": "schools-ranked",
+        "value": 27,
+        "label": { "fr": "écoles classées en ligne" }
+      }
+    ],
+    "platformIds": ["godem-platform"],
+    "published": true,
+    "order": 2
+  },
+  {
+    "slug": "iqraa",
+    "poleSlug": "solidarity",
+    "name": { "fr": "IQRAA" },
+    "tagline": { "fr": "Redonner les mots : lire, écrire, communiquer" },
+    "description": {
+      "fr": "Lecture, soutien scolaire, une bibliothèque au douar Tizi, deux prototypes d'ingénierie (Eden AI et MIPAD)."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "beneficiaries",
+        "value": 180,
+        "label": { "fr": "bénéficiaires (environ)" }
+      },
+      {
+        "key": "hours-with-children",
+        "value": 48,
+        "unit": { "fr": "h" },
+        "label": { "fr": "avec des enfants" }
+      },
+      {
+        "key": "stories-told",
+        "value": 120,
+        "label": { "fr": "histoires racontées (plus de)" }
+      },
+      {
+        "key": "orphans",
+        "value": 40,
+        "label": { "fr": "orphelins, 6 séances (plus de)" }
+      },
+      {
+        "key": "library-books",
+        "value": 50,
+        "label": { "fr": "livres dans la bibliothèque" }
+      },
+      {
+        "key": "olympiad-pupils",
+        "value": 40,
+        "label": { "fr": "élèves, 3 olympiades (plus de)" }
+      },
+      {
+        "key": "book-exchange-students",
+        "value": 100,
+        "label": { "fr": "étudiants en échange de livres (plus de)" }
+      }
+    ],
+    "platformIds": ["waraqa"],
+    "published": true,
+    "order": 3
+  },
+  {
+    "slug": "golden-wishes",
+    "poleSlug": "solidarity",
+    "name": { "fr": "Golden Wishes" },
+    "tagline": {
+      "fr": "Réaliser les souhaits d'enfants en service d'oncologie"
+    },
+    "description": {
+      "fr": "Réalisation de souhaits d'enfants en service d'oncologie et un arbre à souhaits numérique. Les histoires et images de patients sont traitées avec des règles de consentement strictes."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "wishes-granted",
+        "value": 4,
+        "label": { "fr": "souhaits réalisés" }
+      },
+      {
+        "key": "oncology-children",
+        "value": 50,
+        "label": { "fr": "enfants en service d'oncologie (environ)" }
+      },
+      {
+        "key": "zoo-trip-children",
+        "value": 40,
+        "label": {
+          "fr": "enfants lors d'une sortie au zoo d'Aïn Sebaâ (environ)"
+        }
+      }
+    ],
+    "platformIds": ["golden-wishes-tree"],
+    "published": true,
+    "order": 4
+  },
+  {
+    "slug": "jlm-junior",
+    "poleSlug": "solidarity",
+    "name": { "fr": "JLM Junior" },
+    "tagline": { "fr": "Former la relève dès le lycée" },
+    "description": {
+      "fr": "Formation de la nouvelle génération dès le lycée."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "high-school-trained",
+        "value": 75,
+        "label": { "fr": "lycéens formés" }
+      },
+      {
+        "key": "electronics-sessions",
+        "value": 9,
+        "label": { "fr": "séances d'électronique et Arduino" }
+      },
+      {
+        "key": "meals-ramadan",
+        "value": 100,
+        "label": { "fr": "repas distribués pendant le Ramadan" }
+      },
+      {
+        "key": "retirement-home-mornings",
+        "value": 1,
+        "label": { "fr": "matinée dans une maison de retraite" }
+      }
+    ],
+    "platformIds": [],
+    "published": true,
+    "order": 5
+  },
+  {
+    "slug": "greenovators",
+    "poleSlug": "environment",
+    "name": { "fr": "Greenovators" },
+    "tagline": { "fr": "L'écologie rencontre l'innovation" },
+    "description": {
+      "fr": "Nettoyages de plages et d'écoles, ateliers de jardinage, un agent IA qui réduit l'empreinte carbone des serveurs en supprimant les données inutiles."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "waste-this-year-kg",
+        "value": 250,
+        "unit": { "fr": "kg" },
+        "label": { "fr": "de déchets cette année" }
+      },
+      {
+        "key": "waste-since-start-tonnes",
+        "value": 3,
+        "unit": { "fr": "tonnes" },
+        "label": { "fr": "depuis le début (plus de)" }
+      },
+      {
+        "key": "outings",
+        "value": 4,
+        "label": { "fr": "sorties (plages et cimetière)" }
+      },
+      {
+        "key": "school-cleanups",
+        "value": 6,
+        "label": { "fr": "actions de nettoyage scolaire" }
+      },
+      { "key": "plants", "value": 130, "label": { "fr": "plantes" } },
+      {
+        "key": "orphans-aware",
+        "value": 55,
+        "label": { "fr": "orphelins sensibilisés" }
+      }
+    ],
+    "platformIds": [],
+    "published": true,
+    "order": 6
+  },
+  {
+    "slug": "recycle-it",
+    "poleSlug": "environment",
+    "name": { "fr": "Recycle It" },
+    "tagline": { "fr": "Le déchet comme matière première" },
+    "description": {
+      "fr": "Ateliers avec des enfants et une plateforme intelligente proposant des idées de réemploi."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      { "key": "children", "value": 180, "label": { "fr": "enfants" } },
+      {
+        "key": "field-actions",
+        "value": 5,
+        "label": { "fr": "actions de terrain" }
+      },
+      {
+        "key": "cardboard-kg",
+        "value": 20,
+        "unit": { "fr": "kg" },
+        "label": { "fr": "de carton transformé" }
+      },
+      {
+        "key": "bottles-reused",
+        "value": 100,
+        "label": { "fr": "bouteilles réemployées" }
+      },
+      {
+        "key": "straws-reused",
+        "value": 100,
+        "label": { "fr": "pailles réemployées" }
+      }
+    ],
+    "platformIds": ["recycle-it-platform"],
+    "published": true,
+    "order": 7
+  },
+  {
+    "slug": "get-a-plet",
+    "poleSlug": "environment",
+    "name": { "fr": "Get a Plet" },
+    "tagline": { "fr": "Prendre soin des êtres vivants" },
+    "description": {
+      "fr": "Nourrir les animaux errants, sensibiliser au bien-être animal, un « refuge numérique » en développement (adoption, boutique, panneau d'affichage)."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "children-aware",
+        "value": 170,
+        "label": { "fr": "enfants sensibilisés" }
+      }
+    ],
+    "platformIds": ["get-a-plet-shelter"],
+    "published": true,
+    "order": 8
+  },
+  {
+    "slug": "handmade-blkhir",
+    "poleSlug": "social-entrepreneurship",
+    "name": { "fr": "Handmade B'lkhir" },
+    "tagline": { "fr": "Aider à construire sa propre activité" },
+    "description": {
+      "fr": "Trois entrepreneurs accompagnés. Kawtar : de 500 à 2200 DH par mois en 3 ans, pic de Ramadan à 7300 DH, activité transmise à sa fille Salma, accompagnement clos. Abdelhak : fleuriste digitalisé, +26% de chiffre d'affaires en 3 mois, fournisseur officiel JLM, 500 fleurs offertes pour la Journée de la femme. Brahim : artisan de mobilier en carton, accompagnement démarré cette année. Prénoms seuls, avec consentement."
+    },
+    "logo": "TODO(board): logo file",
+    "gallery": [],
+    "stats": [
+      {
+        "key": "kawtar-growth-mad",
+        "value": 2200,
+        "unit": { "fr": "DH/mois" },
+        "label": { "fr": "revenu de Kawtar (depuis 500 DH)" }
+      },
+      {
+        "key": "abdelhak-revenue-growth",
+        "value": 26,
+        "unit": { "fr": "%" },
+        "label": {
+          "fr": "croissance du chiffre d'affaires d'Abdelhak en 3 mois"
+        }
+      },
+      {
+        "key": "flowers-offered",
+        "value": 500,
+        "label": { "fr": "fleurs offertes pour la Journée de la femme" }
+      }
+    ],
+    "platformIds": ["handmade-blkhir-shop"],
+    "published": true,
+    "order": 9
+  }
+]

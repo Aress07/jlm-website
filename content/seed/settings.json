@@ -1,0 +1,18 @@
+{
+  "contact": {
+    "email": "TODO(board): contact email",
+    "phone": "TODO(board): phone number"
+  },
+  "social": {
+    "instagram": "TODO(board)",
+    "facebook": "TODO(board)",
+    "linkedin": "TODO(board)"
+  },
+  "bank": {
+    "holder": "TODO(board): account holder name",
+    "bankName": "TODO(board): bank name",
+    "rib": "TODO(board): RIB — confirm with treasurer before enabling donations (risk #2)"
+  },
+  "donationsEnabled": false,
+  "joinOpen": true
+}

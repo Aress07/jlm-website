@@ -70,7 +70,7 @@ export function JoinForm({ poles }: { poles: Pole[] }) {
   if (success) {
     return (
       <div role="status">
-        <h2 className="text-xl font-semibold">{t("successTitle")}</h2>
+        <h2 className="text-2xl">{t("successTitle")}</h2>
         <p className="text-muted mt-2">{t("successBody")}</p>
       </div>
     );

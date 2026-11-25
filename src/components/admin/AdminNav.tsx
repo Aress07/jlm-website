@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
-// Only lists what's actually built so far. Posts/Campaigns/Projects/
-// Platforms/Settings CRUD is T3.6 scope beyond what T3.5 needed — see
-// docs/HANDOVER.md for what's still missing before this is the full
-// admin panel the master plan's Section 8.6 describes.
+// Write permissions follow the master plan's Section 5.1 matrix: `editor`
+// may write posts/projects/platforms; `admin` is also required for
+// campaigns, settings, and pledge status.
 const items = [
   { href: "/admin", label: "Tableau de bord" },
+  { href: "/admin/posts", label: "Actualités" },
+  { href: "/admin/projects", label: "Projets" },
+  { href: "/admin/platforms", label: "Plateformes" },
+  { href: "/admin/campaigns", label: "Campagnes", adminOnly: true },
   { href: "/admin/pledges", label: "Promesses de don", adminOnly: true },
+  { href: "/admin/settings", label: "Réglages", adminOnly: true },
 ];
 
 export function AdminNav({

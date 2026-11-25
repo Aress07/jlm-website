@@ -53,6 +53,7 @@ export default async function AdminPledgesPage({
               <th className="p-2 text-start">Référence</th>
               <th className="p-2 text-start">Campagne</th>
               <th className="p-2 text-start">Montant</th>
+              <th className="p-2 text-start">Paiement</th>
               <th className="p-2 text-start">Donateur</th>
               <th className="p-2 text-start">Statut</th>
               <th className="p-2 text-start">Actions</th>
@@ -69,6 +70,11 @@ export default async function AdminPledgesPage({
                   <bdi dir="ltr">
                     {pledge.amountMAD} {pledge.currencyDisplay}
                   </bdi>
+                </td>
+                <td className="p-2">
+                  {pledge.paymentMethod === "card"
+                    ? "Carte (test)"
+                    : "Virement"}
                 </td>
                 <td className="p-2">
                   {pledge.anonymous ? "Anonyme" : pledge.donorName || "—"}

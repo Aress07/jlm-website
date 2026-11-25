@@ -20,17 +20,19 @@ export default async function DonateListPage({
 
   const all = await getCampaigns();
   const active = await getActiveCampaigns();
-  const activeSlugs = new Set(active.map((c) => c.slug));
-  const past = all.filter((c) => !activeSlugs.has(c.slug));
+  // Only campaigns that have actually ended are "past" — an upcoming one
+  // (startsAt in the future) used to be mislabelled as past and shown as a
+  // dead, unclickable card.
+  // eslint-disable-next-line react-hooks/purity
+  const now = Date.now();
+  const past = all.filter((c) => c.endsAt.getTime() < now);
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("title")}</h1>
       <p className="text-muted mt-4 max-w-prose">{t("intro")}</p>
 
-      <h2 className="mt-10 mb-4 text-xl font-semibold">
-        {t("activeCampaigns")}
-      </h2>
+      <h2 className="mt-10 mb-4 text-2xl">{t("activeCampaigns")}</h2>
       {active.length === 0 ? (
         <p className="text-muted">{t("noActiveCampaigns")}</p>
       ) : (
@@ -39,8 +41,8 @@ export default async function DonateListPage({
             const title = resolveLocalized(campaign.title, locale);
             return (
               <Link key={campaign.slug} href={`/donate/${campaign.slug}`}>
-                <Card className="h-full transition-shadow hover:shadow-md">
-                  <h3 className="font-semibold">{title.text}</h3>
+                <Card className="h-full hover:-translate-y-1 hover:shadow-md">
+                  <h3 className="text-xl">{title.text}</h3>
                   <div className="mt-3">
                     <ProgressBar
                       receivedMAD={campaign.receivedMAD}
@@ -56,15 +58,13 @@ export default async function DonateListPage({
 
       {past.length > 0 && (
         <>
-          <h2 className="mt-10 mb-4 text-xl font-semibold">
-            {t("pastCampaigns")}
-          </h2>
+          <h2 className="mt-10 mb-4 text-2xl">{t("pastCampaigns")}</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {past.map((campaign) => {
               const title = resolveLocalized(campaign.title, locale);
               return (
                 <Card key={campaign.slug}>
-                  <h3 className="font-semibold">{title.text}</h3>
+                  <h3 className="text-xl">{title.text}</h3>
                   <p className="text-muted mt-1 text-sm">
                     <bdi dir="ltr">{campaign.receivedMAD}</bdi> MAD
                   </p>

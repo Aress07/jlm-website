@@ -33,7 +33,8 @@
   },
   "footer": {
     "missionLine": "Jeunes Leaders Marocains, the humanitarian student association of ENSAM Casablanca, active since 2014.",
-    "rightsReserved": "All rights reserved."
+    "rightsReserved": "All rights reserved.",
+    "photoCredits": "Photo credits"
   },
   "home": {
     "heroSubline": "The humanitarian student association of ENSAM Casablanca, active since 2014.",
@@ -45,7 +46,10 @@
     "newsTitle": "Latest news",
     "platformsTitle": "Our platforms",
     "partnersTitle": "Our partners",
-    "finalCtaTitle": "Join us, give, or get in touch"
+    "finalCtaTitle": "Join us, give, or get in touch",
+    "statsTitle": "Our impact in numbers",
+    "flagshipInvested": "invested",
+    "flagshipPeople": "people"
   },
   "idCard": {
     "saveContact": "Save contact",
@@ -65,6 +69,10 @@
     "disabledNotice": "Online giving isn't open yet. Contact us to give.",
     "amountLabel": "Amount (MAD)",
     "customAmount": "Other amount",
+    "paymentMethodLabel": "Payment method",
+    "paymentMethodBank": "Bank transfer",
+    "paymentMethodCard": "Card (test mode)",
+    "cardTestNotice": "Test mode: no real money is charged. This is a demo pending the board's approval of a real merchant account.",
     "inKind": "Give in kind",
     "inKindDescriptionLabel": "Describe your gift (items, drop-off or pickup)",
     "donorNameLabel": "Your name (optional)",
@@ -82,10 +90,12 @@
     "confirmationTitle": "Thank you for your pledge",
     "referenceLabel": "Your reference",
     "referenceInstruction": "Write this reference in your bank transfer label.",
+    "cardSuccessNotice": "Test payment received successfully. No real money was charged — this is a demo.",
     "shareCampaign": "Share this campaign",
     "copy": "Copy",
     "copied": "Copied!",
-    "viewCampaign": "View campaign"
+    "viewCampaign": "View campaign",
+    "payByCard": "Pay by card (test)"
   },
   "projects": {
     "title": "Our projects",
@@ -174,5 +184,28 @@
   "legal": {
     "privacyTitle": "Privacy policy",
     "noticeTitle": "Legal notice"
+  },
+  "imagery": {
+    "hero": "Aerial view of Casablanca with the Hassan II Mosque on the horizon",
+    "solidarity": "A village in the High Atlas mountains, Al Haouz province",
+    "environment": "Terraced village and greenery in the High Atlas near Imlil",
+    "entrepreneurship": "Handmade pottery and tajines in the Fes medina"
+  },
+  "comingSoon": {
+    "badge": "Coming soon",
+    "impactTitle": "Our impact, very soon",
+    "impactBody": "We're preparing a dedicated page for our figures, flagship actions and how they've grown since 2014. It's coming shortly.",
+    "newsTitle": "News is on its way",
+    "newsBody": "Announcements, field actions and volunteer calls: this page will soon be updated by the JLM team.",
+    "idTitle": "Our ID card is on its way",
+    "idBody": "A shareable digital business card with our contact details and a QR code will be available soon.",
+    "backHome": "Back to home",
+    "contactUs": "Contact us"
+  },
+  "notFound": {
+    "title": "This page can't be found",
+    "body": "The link may be wrong or the page may have moved. You can find our projects and actions from the home page.",
+    "backHome": "Back to home",
+    "seeProjects": "See our projects"
   }
 }

@@ -9,7 +9,7 @@ export default async function LegalNoticePage() {
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("noticeTitle")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("noticeTitle")}</h1>
       <div className="mt-6 flex max-w-prose flex-col gap-2 text-sm">
         <p>
           TODO(board): nom légal exact de l&apos;association et adresse du

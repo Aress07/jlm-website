@@ -54,7 +54,7 @@ export default async function PlatformsHubPage({
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("title")}</h1>
       <p className="text-muted mt-2 max-w-prose">{t("subtitle")}</p>
 
       <nav aria-label={t("title")} className="mt-6 flex flex-wrap gap-2">
@@ -98,7 +98,7 @@ export default async function PlatformsHubPage({
 
       {prototypes.length > 0 && (
         <section className="mt-10">
-          <h2 className="mb-3 text-xl font-semibold">{t("prototypesTitle")}</h2>
+          <h2 className="mb-3 text-2xl">{t("prototypesTitle")}</h2>
           <div className="flex flex-col gap-2">
             {prototypes.map((platform) => (
               <Card key={platform.id}>

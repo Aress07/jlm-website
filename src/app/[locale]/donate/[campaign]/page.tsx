@@ -10,6 +10,7 @@ import { ProgressBar } from "@/components/donate/ProgressBar";
 import { PledgeForm } from "@/components/donate/PledgeForm";
 import { LinkButton } from "@/components/ui/Button";
 import { ViewTracker } from "@/components/ui/ViewTracker";
+import { isCardPaymentsEnabled } from "@/lib/payments/stripe";
 
 export async function generateMetadata({
   params,
@@ -44,7 +45,7 @@ export default async function CampaignPage({
   return (
     <Container className="py-12">
       <ViewTracker event="donate_view" data={{ campaign: campaign.slug }} />
-      <h1 className="text-3xl font-bold">{title.text}</h1>
+      <h1 className="text-4xl sm:text-5xl">{title.text}</h1>
       <p className="text-muted mt-4 max-w-prose">{story.text}</p>
 
       <div className="mt-6 max-w-md">
@@ -82,6 +83,7 @@ export default async function CampaignPage({
           <PledgeForm
             campaignSlug={campaign.slug}
             inKindAccepted={campaign.inKindAccepted}
+            cardPaymentsEnabled={isCardPaymentsEnabled()}
           />
         </div>
       )}

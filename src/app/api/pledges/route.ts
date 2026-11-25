@@ -8,6 +8,7 @@ import { isRateLimited, clientIpFrom } from "@/lib/security/rate-limit";
 import { sendEmail } from "@/lib/email/send";
 import { getPublicSettings } from "@/lib/content/settings";
 import { toMillis } from "@/lib/utils/firestore-date";
+import { getStripeClient, isCardPaymentsEnabled } from "@/lib/payments/stripe";
 
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -88,6 +89,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ reference: existing.docs[0].data().reference });
   }
 
+  if (input.paymentMethod === "card" && !isCardPaymentsEnabled()) {
+    return NextResponse.json(
+      { error: "Card payment is not configured" },
+      { status: 400 },
+    );
+  }
+
   const verified = await verifyTurnstile(input.turnstileToken, ip);
   if (!verified) {
     return NextResponse.json({ error: "Verification failed" }, { status: 403 });
@@ -116,10 +124,50 @@ export async function POST(request: Request) {
     kind: input.kind,
     inKindDescription: input.inKindDescription,
     status: "pledged",
+    paymentMethod: input.paymentMethod,
     createdAt: new Date(),
     locale: input.locale,
     idempotencyKey: input.idempotencyKey,
   });
+
+  // Card is a Stripe Checkout test-mode redirect (see src/lib/payments/stripe.ts);
+  // the pledge stays "pledged" until the webhook confirms payment.
+  if (input.paymentMethod === "card") {
+    const origin = new URL(request.url).origin;
+    const currency = (process.env.STRIPE_CURRENCY ?? "mad").toLowerCase();
+    const session = await getStripeClient().checkout.sessions.create({
+      mode: "payment",
+      allowed_payment_method_types: ["card"],
+      customer_email: input.email,
+      line_items: [
+        {
+          quantity: 1,
+          price_data: {
+            currency,
+            unit_amount: Math.round(input.amountMAD * 100),
+            product_data: { name: `JLM ENSAM — ${reference}` },
+          },
+        },
+      ],
+      success_url: `${origin}/${input.locale}/donate/thanks?ref=${encodeURIComponent(reference)}&campaign=${encodeURIComponent(input.campaignSlug)}&method=card`,
+      cancel_url: `${origin}/${input.locale}/donate/${input.campaignSlug}`,
+      metadata: { pledgeId: pledgeRef.id, reference },
+    });
+    await pledgeRef.update({
+      paymentProvider: "stripe",
+      stripeSessionId: session.id,
+    });
+
+    if (input.email) {
+      await sendEmail({
+        to: input.email,
+        subject: confirmationSubject[input.locale] ?? confirmationSubject.fr,
+        html: `<p>${reference}</p><p>Test-mode card payment — no real money is charged.</p>`,
+      });
+    }
+
+    return NextResponse.json({ reference, checkoutUrl: session.url });
+  }
 
   if (input.email) {
     await sendEmail({

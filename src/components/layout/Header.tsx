@@ -17,9 +17,12 @@ export function Header() {
   ];
 
   return (
-    <header className="bg-bg border-b border-black/5">
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="font-semibold">
+    <header className="bg-bg/90 sticky top-0 z-40 border-b border-black/[0.06] backdrop-blur">
+      <Container className="flex h-[72px] items-center justify-between gap-4">
+        <Link
+          href="/"
+          className="text-text text-lg font-semibold tracking-tight"
+        >
           {common("siteName")}
         </Link>
         <nav
@@ -30,7 +33,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-text text-sm font-medium"
+              className="text-text/80 hover:text-text text-sm font-medium transition-colors"
             >
               {item.label}
             </Link>

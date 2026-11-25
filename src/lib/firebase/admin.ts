@@ -1,8 +1,14 @@
-import "server-only";
 import { cert, getApps, initializeApp, type App } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
 import { getStorage } from "firebase-admin/storage";
+
+// No `import "server-only"` here, unlike the rest of src/lib — that package
+// unconditionally throws outside Next's own build, which broke `pnpm seed`
+// and `pnpm make-admin` (both import this module directly via tsx). This
+// Admin SDK bootstrap can't run client-side anyway (firebase-admin needs
+// Node built-ins a browser bundle can't resolve), so the extra guard wasn't
+// adding real protection — see docs/DECISIONS.md.
 
 /**
  * Without real credentials (no .env.local, no emulator) this still returns
@@ -63,7 +69,22 @@ export const adminApp = getAdminApp();
 // catch the failure per-call and fall back to empty data instead.
 let _db: ReturnType<typeof getFirestore> | undefined;
 export function getAdminDb() {
-  if (!_db) _db = getFirestore(adminApp);
+  if (!_db) {
+    _db = getFirestore(adminApp);
+    // Every optional schema field (donorName, cover, screenshot, ...) is
+    // read as `undefined` when absent, and the Admin SDK rejects that in a
+    // `.set()`/`.update()` payload by default — this was never exercised
+    // against a real/emulated project before, so it went unnoticed.
+    try {
+      _db.settings({ ignoreUndefinedProperties: true });
+    } catch {
+      // Already configured: Turbopack's dev hot-reload resets this
+      // module's `_db` binding to undefined on every edit, but the
+      // underlying Firestore client — keyed by the Admin App singleton,
+      // which does survive the reload — stays the same instance, and
+      // `.settings()` throws on a second call to it. Harmless to ignore.
+    }
+  }
   return _db;
 }
 

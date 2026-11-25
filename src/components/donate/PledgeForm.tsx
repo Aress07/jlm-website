@@ -12,9 +12,11 @@ import { trackEvent } from "@/lib/analytics/track";
 export function PledgeForm({
   campaignSlug,
   inKindAccepted,
+  cardPaymentsEnabled,
 }: {
   campaignSlug: string;
   inKindAccepted: boolean;
+  cardPaymentsEnabled: boolean;
 }) {
   const t = useTranslations("donate");
   const locale = useLocale() as "fr" | "ar" | "en";
@@ -22,6 +24,9 @@ export function PledgeForm({
 
   const [amount, setAmount] = useState<number | null>(null);
   const [kind, setKind] = useState<"money" | "in-kind">("money");
+  const [paymentMethod, setPaymentMethod] = useState<"bank-transfer" | "card">(
+    "bank-transfer",
+  );
   const [inKindDescription, setInKindDescription] = useState("");
   const [donorName, setDonorName] = useState("");
   const [anonymous, setAnonymous] = useState(false);
@@ -68,6 +73,7 @@ export function PledgeForm({
           email: email || undefined,
           phone: phone || undefined,
           message: message || undefined,
+          paymentMethod: kind === "money" ? paymentMethod : "bank-transfer",
           locale,
           idempotencyKey,
           turnstileToken: turnstileToken || "dev-no-turnstile-configured",
@@ -81,6 +87,11 @@ export function PledgeForm({
         return;
       }
       trackEvent("pledge_submitted", { campaignSlug });
+      if (data.checkoutUrl) {
+        // Full browser redirect to Stripe-hosted Checkout (test mode).
+        window.location.href = data.checkoutUrl;
+        return;
+      }
       router.push(
         `/donate/thanks?ref=${encodeURIComponent(data.reference)}&campaign=${campaignSlug}`,
       );
@@ -127,6 +138,37 @@ export function PledgeForm({
             }}
             customLabel={t("customAmount")}
           />
+
+          {cardPaymentsEnabled && (
+            <div className="mt-4">
+              <span className="mb-1 block text-sm font-medium">
+                {t("paymentMethodLabel")}
+              </span>
+              <div className="flex gap-4 text-sm">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    checked={paymentMethod === "bank-transfer"}
+                    onChange={() => setPaymentMethod("bank-transfer")}
+                  />
+                  {t("paymentMethodBank")}
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    checked={paymentMethod === "card"}
+                    onChange={() => setPaymentMethod("card")}
+                  />
+                  {t("paymentMethodCard")}
+                </label>
+              </div>
+              {paymentMethod === "card" && (
+                <p className="text-muted mt-1 text-xs">{t("cardTestNotice")}</p>
+              )}
+            </div>
+          )}
         </div>
       ) : (
         <div>
@@ -227,7 +269,11 @@ export function PledgeForm({
       )}
 
       <Button type="submit" loading={submitting} disabled={submitting}>
-        {submitting ? t("submitting") : t("submit")}
+        {submitting
+          ? t("submitting")
+          : kind === "money" && paymentMethod === "card"
+            ? t("payByCard")
+            : t("submit")}
       </Button>
     </form>
   );

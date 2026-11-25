@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{name.text}</h1>
+      <h1 className="text-4xl sm:text-5xl">{name.text}</h1>
       <p className="text-muted mt-2 text-lg">{tagline.text}</p>
       <p className="mt-4 max-w-prose whitespace-pre-line">{description.text}</p>
 

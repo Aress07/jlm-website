@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cairo } from "next/font/google";
+import { Figtree, Cairo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/lib/i18n/routing";
@@ -8,7 +8,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "@/styles/globals.css";
 
-const latin = Inter({
+// One friendly sans for Latin (Figtree, the closest free match to the
+// custom sans on alan.com that inspired the 2026-11-20 redesign) and Cairo
+// for Arabic — see docs/DECISIONS.md.
+const latin = Figtree({
   subsets: ["latin"],
   variable: "--font-latin",
   display: "swap",

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
 import { Container } from "@/components/ui/Container";
+import { siteImages } from "@/lib/content/site-images";
 
 export function Footer() {
   const t = useTranslations("nav");
@@ -30,6 +31,32 @@ export function Footer() {
             </Link>
           ))}
         </nav>
+        <p className="text-muted text-xs">
+          {footer("photoCredits")}:{" "}
+          {Object.values(siteImages).map((image, i) => (
+            <span key={image.src}>
+              {i > 0 && " · "}
+              <a
+                href={image.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                {image.author}
+              </a>{" "}
+              (
+              <a
+                href={image.licenseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                {image.license}
+              </a>
+              )
+            </span>
+          ))}
+        </p>
         <p className="text-muted">
           &copy; {new Date().getFullYear()} {common("siteName")} —{" "}
           {footer("rightsReserved")}

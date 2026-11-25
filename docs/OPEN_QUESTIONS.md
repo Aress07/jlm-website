@@ -6,6 +6,7 @@ Carried over from `JLM_WEBSITE_EXECUTION_PLAN.md` Section 14, plus the Phase 3 c
 
 1. Legal name of the association, registered address, publication director, and who signs off content after launch?
 2. Public-fundraising authorization and an association bank account in its name — what text and number must be shown?
+   - If the board wants real (not test-mode) online card payments eventually: Stripe does not pay out to Moroccan bank accounts, so this needs a CMI merchant contract with a Moroccan bank, or a PayPal Business account — neither is a free/instant signup, both need board decisions and paperwork.
 3. **Bank details to display (holder, bank, RIB, IBAN) and the confirmation email address for pledges.** Blocking for `settings/bank` in Firestore and for T3.5's real-world correctness (risk #2, hard checkpoint 14 Nov in the day-by-day plan — **not met**, no treasurer contact happened). `donationsEnabled` is seeded `false` until this is answered.
 4. Brand: official logo files, colors, fonts, year(s) of the national champion title. `src/styles/tokens.css` uses a placeholder neutral palette, marked `TODO(board): brand colors`.
 5. Official social accounts and contact channels (WhatsApp number, email, phone).

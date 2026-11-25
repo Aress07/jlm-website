@@ -22,7 +22,7 @@ export default async function PartnersPage() {
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("title")}</h1>
 
       {partners.length === 0 ? (
         <p className="text-muted mt-6">{t("noPartners")}</p>

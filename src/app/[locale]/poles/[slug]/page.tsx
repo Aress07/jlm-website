@@ -48,14 +48,14 @@ export default async function PolePage({
         style={{ borderBottomColor: poleAccentVar[pole.slug] }}
       >
         <Container>
-          <h1 className="text-3xl font-bold">{name.text}</h1>
+          <h1 className="text-4xl sm:text-5xl">{name.text}</h1>
           <p className="text-muted mt-2 text-lg">{tagline.text}</p>
           <p className="mt-4 max-w-prose">{description.text}</p>
         </Container>
       </div>
 
       <Container className="py-10">
-        <h2 className="mb-4 text-xl font-semibold">{t("projectsTitle")}</h2>
+        <h2 className="mb-4 text-2xl">{t("projectsTitle")}</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => {
             const projectName = resolveLocalized(project.name, locale);

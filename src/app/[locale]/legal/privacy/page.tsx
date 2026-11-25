@@ -9,7 +9,7 @@ export default async function PrivacyPage() {
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("privacyTitle")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("privacyTitle")}</h1>
       <div className="mt-6 flex max-w-prose flex-col gap-4 text-sm">
         <p>
           JLM ENSAM Casablanca collecte les données que vous nous fournissez

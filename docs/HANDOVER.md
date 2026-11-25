@@ -10,6 +10,29 @@ Updated at every gate and whenever the PM role rotates (risk #13). Read this bef
 
 **Known gaps that are not code problems:** see `docs/OPEN_QUESTIONS.md` — bank details, Arabic native review, legal/CNDP contact, and brand colors all need a real person on the JLM board or team, not more development time.
 
+## 2026-11-20 — Admin CRUD built for Posts, Campaigns, Projects, Platforms, Settings
+
+The biggest remaining T3.6 gap from the previous entry is closed: `/admin/posts`, `/admin/campaigns` (admin-only), `/admin/projects`, `/admin/platforms` (editor+admin) and `/admin/settings` (admin-only) now have working list + create + edit + delete + publish-toggle, all going through `requireEditorOrAdmin`/`requireAdmin` (`src/lib/security/require-role.ts`) and logging `updatedBy`/`updatedAt` on every write. Not run against real data — same caveat as everything else, no Firebase project configured in this session.
+
+**Known gaps against the full T3.6 AC** (`JLM_PHASE3_DEMO_EXECUTION_PLAN.md`), left for a follow-up session, not silently dropped:
+
+- No image uploader — cover/logo/screenshot fields are plain URL text inputs, same as the seed data. Firebase Storage client exists but nothing uploads to it yet.
+- No autosave, no preview.
+- Nested array-of-object fields (campaign `breakdown`, project `stats`/`leads`) are edited as raw JSON in a textarea, not a dynamic repeater UI — functional for a technical admin, not friendly for a non-technical board member.
+- Wrong-role access redirects to `/admin` (same pattern the existing Pledges page already used), not the dedicated "403 screen" the day-by-day plan's AC names.
+- CRUD for the smaller entities the write-matrix also covers (stats, flagship actions, team, partners, users) isn't built — only the five entities `docs/BACKLOG.md`/this file previously flagged as missing.
+
+## 2026-11-20 — Stripe webhook gotchas found while testing locally
+
+- The Stripe CLI (`stripe listen`) must be switched to the **same Stripe account as `STRIPE_SECRET_KEY`** (`stripe switch <acct_id>`). `stripe login` authorizes both sandboxes ("jlm web" and "jlm web sandbox") and defaults to one of them; a payment made in the other account never reaches the forwarder, and the pledge stays `pledged`. `whsec_...` differs per account, so update `STRIPE_WEBHOOK_SECRET` and restart `pnpm dev` after switching.
+- The CLI login token expires after a few hours; `stripe listen` then dies with a 401 and needs `stripe login` again.
+- "Mark pledge received" now lives in `src/lib/payments/reconcile.ts` (idempotent, only acts on a paid session), used by the webhook — a missed event can be replayed by retrieving the session from Stripe and calling it.
+- Verified end to end against the Firebase emulator on 2026-11-20: a real test payment and a `stripe trigger checkout.session.completed` both flipped the pledge to `received` and updated the campaign total.
+
+## 2026-11-20 — Stripe test-mode card payment added to the pledge flow
+
+At the user's explicit request (not part of the frozen Gate 3 scope — see `docs/BACKLOG.md` and `docs/DECISIONS.md`), the pledge form now offers a second payment method: a Stripe Checkout redirect, **test mode only**. It only appears/works when `STRIPE_SECRET_KEY` is set in the environment; without it the site behaves exactly as before (bank-transfer only). `src/app/api/webhooks/stripe/route.ts` is new — needs `STRIPE_WEBHOOK_SECRET` and a webhook pointed at `/api/webhooks/stripe` registered in the Stripe dashboard (test mode) to actually flip a card pledge from `pledged` to `received`; untested end-to-end since there's no Stripe account configured in this session. Not run against a real Firebase project, same as the rest of T3.5.
+
 ## 2026-11-19 — T3.5 (donation module) + minimal admin panel done
 
 Pledge flow (campaign page → amount/in-kind → form → `/api/pledges` → thank-you with reference + RIB) works end to end against whatever Firestore project is configured; it's just gated `donationsEnabled: false` so nothing can actually be donated until the board confirms bank details. Admin login (Firebase Auth + session cookie) and a Pledges table (mark received/cancelled, CSV export) exist, but that's the only admin screen — Posts/Campaigns/Projects/Platforms/Settings CRUD (the rest of T3.6) is not built yet.

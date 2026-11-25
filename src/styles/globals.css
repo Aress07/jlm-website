@@ -8,6 +8,12 @@
   --color-muted: var(--color-muted);
   --color-primary: var(--color-primary);
   --color-primary-contrast: var(--color-primary-contrast);
+  --color-accent: var(--color-accent);
+  --color-accent-contrast: var(--color-accent-contrast);
+  --color-tint-violet: var(--color-tint-violet);
+  --color-tint-mint: var(--color-tint-mint);
+  --color-tint-pink: var(--color-tint-pink);
+  --color-tint-yellow: var(--color-tint-yellow);
   --color-pole-solidarity: var(--color-pole-solidarity);
   --color-pole-environment: var(--color-pole-environment);
   --color-pole-entrepreneurship: var(--color-pole-entrepreneurship);
@@ -26,17 +32,47 @@ body {
 
 body {
   font-family: var(--font-sans), sans-serif;
-  line-height: 1.5;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
 html[dir="rtl"] body {
-  line-height: 1.6;
+  line-height: 1.7;
   font-family: var(--font-arabic), var(--font-sans), sans-serif;
 }
 
 /* Western digits everywhere, even in RTL (master plan Section 7.3). */
 html[dir="rtl"] {
   font-variant-numeric: normal;
+}
+
+/*
+ * Medium-weight, tightly set, balanced headlines — the alan.com look —
+ * applied to every heading in one place. Components may still bump the
+ * size; they should not re-bold headings.
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6 {
+  letter-spacing: normal;
+  line-height: 1.35;
+  font-weight: 600;
 }
 
 :focus-visible {

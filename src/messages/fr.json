@@ -33,7 +33,8 @@
   },
   "footer": {
     "missionLine": "Jeunes Leaders Marocains, association humanitaire étudiante de l'ENSAM Casablanca, active depuis 2014.",
-    "rightsReserved": "Tous droits réservés."
+    "rightsReserved": "Tous droits réservés.",
+    "photoCredits": "Crédits photos"
   },
   "home": {
     "heroSubline": "L'association humanitaire étudiante de l'ENSAM Casablanca, active depuis 2014.",
@@ -45,7 +46,10 @@
     "newsTitle": "Dernières actualités",
     "platformsTitle": "Nos plateformes",
     "partnersTitle": "Nos partenaires",
-    "finalCtaTitle": "Rejoignez-nous, donnez, ou contactez-nous"
+    "finalCtaTitle": "Rejoignez-nous, donnez, ou contactez-nous",
+    "statsTitle": "Notre impact en chiffres",
+    "flagshipInvested": "investis",
+    "flagshipPeople": "personnes"
   },
   "idCard": {
     "saveContact": "Enregistrer le contact",
@@ -65,6 +69,10 @@
     "disabledNotice": "Les dons en ligne ne sont pas encore ouverts. Contactez-nous pour faire un don.",
     "amountLabel": "Montant (MAD)",
     "customAmount": "Autre montant",
+    "paymentMethodLabel": "Mode de paiement",
+    "paymentMethodBank": "Virement bancaire",
+    "paymentMethodCard": "Carte bancaire (mode test)",
+    "cardTestNotice": "Mode test : aucun paiement réel n'est débité. Démonstration en attendant la validation d'un compte marchand réel par le bureau.",
     "inKind": "Faire un don en nature",
     "inKindDescriptionLabel": "Décrivez votre don (objets, dépôt ou collecte)",
     "donorNameLabel": "Votre nom (optionnel)",
@@ -82,10 +90,12 @@
     "confirmationTitle": "Merci pour votre promesse de don",
     "referenceLabel": "Votre référence",
     "referenceInstruction": "Indiquez cette référence dans le libellé de votre virement.",
+    "cardSuccessNotice": "Paiement test reçu avec succès. Aucune somme réelle n'a été débitée — ceci est une démonstration.",
     "shareCampaign": "Partager cette campagne",
     "copy": "Copier",
     "copied": "Copié !",
-    "viewCampaign": "Voir la campagne"
+    "viewCampaign": "Voir la campagne",
+    "payByCard": "Payer par carte (test)"
   },
   "projects": {
     "title": "Nos projets",
@@ -174,5 +184,28 @@
   "legal": {
     "privacyTitle": "Politique de confidentialité",
     "noticeTitle": "Mentions légales"
+  },
+  "imagery": {
+    "hero": "Vue aérienne de Casablanca, avec la mosquée Hassan II à l'horizon",
+    "solidarity": "Village et montagnes du Haut Atlas, province d'Al Haouz",
+    "environment": "Village en terrasses et verdure dans le Haut Atlas, près d'Imlil",
+    "entrepreneurship": "Poteries et tajines artisanaux dans la médina de Fès"
+  },
+  "comingSoon": {
+    "badge": "Bientôt disponible",
+    "impactTitle": "Notre impact, très bientôt",
+    "impactBody": "Nous préparons une page dédiée à nos chiffres, nos actions phares et leur évolution depuis 2014. Elle arrive très prochainement.",
+    "newsTitle": "Les actualités arrivent",
+    "newsBody": "Annonces, actions de terrain et appels à bénévoles : cette page sera bientôt mise à jour par l'équipe JLM.",
+    "idTitle": "Notre carte d'identité arrive",
+    "idBody": "Une carte de visite numérique à partager, avec nos coordonnées et un QR code, sera bientôt disponible.",
+    "backHome": "Retour à l'accueil",
+    "contactUs": "Nous contacter"
+  },
+  "notFound": {
+    "title": "Cette page est introuvable",
+    "body": "Le lien est peut-être incorrect ou la page a été déplacée. Retrouvez nos projets et nos actions depuis l'accueil.",
+    "backHome": "Retour à l'accueil",
+    "seeProjects": "Voir nos projets"
   }
 }

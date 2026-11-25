@@ -28,6 +28,7 @@ export async function GET() {
     "email",
     "phone",
     "kind",
+    "paymentMethod",
     "createdAt",
   ];
   const rows = snapshot.docs.map((doc) => {

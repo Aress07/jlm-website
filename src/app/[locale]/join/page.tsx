@@ -15,7 +15,7 @@ export default async function JoinPage() {
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("title")}</h1>
       <p className="text-muted mt-2 max-w-prose">{t("intro")}</p>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">

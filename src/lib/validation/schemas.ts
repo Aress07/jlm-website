@@ -71,6 +71,8 @@ export const projectSchema = z.object({
     .optional(),
   published: z.boolean(),
   order: z.number().int(),
+  updatedBy: z.string().optional(),
+  updatedAt: firestoreDate.optional(),
 });
 export type Project = z.infer<typeof projectSchema>;
 
@@ -85,6 +87,8 @@ export const platformSchema = z.object({
   screenshot: z.string().optional(),
   order: z.number().int(),
   published: z.boolean(),
+  updatedBy: z.string().optional(),
+  updatedAt: firestoreDate.optional(),
 });
 export type Platform = z.infer<typeof platformSchema>;
 
@@ -111,6 +115,8 @@ export const postSchema = z.object({
   pinned: z.boolean().default(false),
   published: z.boolean().default(false),
   authorUid: z.string(),
+  updatedBy: z.string().optional(),
+  updatedAt: firestoreDate.optional(),
 });
 export type Post = z.infer<typeof postSchema>;
 
@@ -136,26 +142,38 @@ export const campaignSchema = z.object({
     .default([]),
   inKindAccepted: z.boolean().default(false),
   published: z.boolean().default(false),
+  updatedBy: z.string().optional(),
+  updatedAt: firestoreDate.optional(),
 });
 export type Campaign = z.infer<typeof campaignSchema>;
 
-export const pledgeInputSchema = z.object({
-  campaignSlug: z.string().min(1),
-  amountMAD: z.number().positive(),
-  currencyDisplay: z.enum(["MAD", "EUR"]).default("MAD"),
-  donorName: z.string().max(200).optional(),
-  anonymous: z.boolean().default(false),
-  email: z.string().email().optional(),
-  phone: z.string().max(40).optional(),
-  message: z.string().max(1000).optional(),
-  kind: z.enum(["money", "in-kind"]).default("money"),
-  inKindDescription: z.string().max(500).optional(),
-  locale: z.enum(["fr", "ar", "en"]),
-  idempotencyKey: z.string().min(1),
-  turnstileToken: z.string().min(1),
-  // Honeypot: real users never fill this; bots that fill every field do.
-  website: z.string().max(0).optional(),
-});
+export const pledgeInputSchema = z
+  .object({
+    campaignSlug: z.string().min(1),
+    amountMAD: z.number().positive(),
+    currencyDisplay: z.enum(["MAD", "EUR"]).default("MAD"),
+    donorName: z.string().max(200).optional(),
+    anonymous: z.boolean().default(false),
+    email: z.string().email().optional(),
+    phone: z.string().max(40).optional(),
+    message: z.string().max(1000).optional(),
+    kind: z.enum(["money", "in-kind"]).default("money"),
+    inKindDescription: z.string().max(500).optional(),
+    // "card" is test-mode only via Stripe Checkout — see src/lib/payments/stripe.ts.
+    paymentMethod: z.enum(["bank-transfer", "card"]).default("bank-transfer"),
+    locale: z.enum(["fr", "ar", "en"]),
+    idempotencyKey: z.string().min(1),
+    turnstileToken: z.string().min(1),
+    // Honeypot: real users never fill this; bots that fill every field do.
+    website: z.string().max(0).optional(),
+  })
+  .refine(
+    (data) => data.kind !== "in-kind" || data.paymentMethod === "bank-transfer",
+    {
+      message: "In-kind pledges cannot use card payment",
+      path: ["paymentMethod"],
+    },
+  );
 export type PledgeInput = z.infer<typeof pledgeInputSchema>;
 
 export const pledgeSchema = z.object({
@@ -172,6 +190,10 @@ export const pledgeSchema = z.object({
   kind: z.enum(["money", "in-kind"]),
   inKindDescription: z.string().optional(),
   status: z.enum(["pledged", "received", "cancelled"]),
+  paymentMethod: z.enum(["bank-transfer", "card"]).default("bank-transfer"),
+  paymentProvider: z.enum(["stripe"]).optional(),
+  stripeSessionId: z.string().optional(),
+  stripePaymentIntentId: z.string().optional(),
   createdAt: firestoreDate,
   receivedAt: firestoreDate.optional(),
   locale: z.enum(["fr", "ar", "en"]),
@@ -254,6 +276,8 @@ export const settingsSchema = z.object({
     .optional(),
   donationsEnabled: z.boolean().default(false),
   joinOpen: z.boolean().default(true),
+  updatedBy: z.string().optional(),
+  updatedAt: firestoreDate.optional(),
 });
 export type Settings = z.infer<typeof settingsSchema>;
 

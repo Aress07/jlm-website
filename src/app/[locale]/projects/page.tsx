@@ -28,7 +28,7 @@ export default async function ProjectsPage({
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
+      <h1 className="text-4xl sm:text-5xl">{t("title")}</h1>
 
       <nav aria-label={t("title")} className="mt-6 flex flex-wrap gap-2">
         <Link

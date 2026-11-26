@@ -42,7 +42,8 @@ None of the plan checkboxes are ticked. The rule is to tick only after the merge
 | E2E (Playwright), Chromium desktop + Pixel 7 | **62 passed, 4 skipped.** The skipped tests are J1 in fr/ar: they need `E2E_CAMPAIGN_SLUG` and a published campaign |
 | axe (WCAG 2.2 AA), 14 routes × FR/AR × desktop/mobile | **0 serious or critical issues**, in the empty-data state. The sweep found and fixed 4 issues: 3 contrast failures and 1 label-in-name failure (`8c290a0`) |
 | WebKit / Safari | Not run (browser not installed). Risk #14 is Accept |
-| Firestore rules tests (`pnpm test:rules`) | **Not run** (emulator needs Java 21+). The suite exists and covers anonymous access to pledges, contact messages and join requests. **Run it before the demo (risk #6)** |
+| Firestore rules tests | **13/13 pass** on the emulator (JDK 21 installed later on 26 Nov). The first run found that **editors could write `campaigns`** (and so fake `receivedMAD`); fixed in `80050f5`. The suite had never run before: it pointed at the wrong port, and the test config excluded it |
+| Stripe card payment (test mode) | **Works end to end** on the emulator (26 Nov): form → Checkout → `4242` test card → thank-you page → `checkout.session.completed` webhook (200) → pledge `received` → campaign total 100/1000 MAD. Unpaid sessions stay `pledged` and are not counted. Opt-in test: `tests/e2e/stripe-card.spec.ts`. Live keys are now refused in code (`611ca99`) |
 | Lighthouse CI (mobile) | **Not run.** Run on staging: `npx lighthouse <url> --form-factor=mobile` on `/fr`, `/fr/projects/iqraa`, a campaign page and `/fr/id` |
 | Manual passes (Android on 4G, keyboard on the donate flow, screen reader) | Not done. These need a person and a device |
 | CI | **There is no `.github/workflows/` in the repo.** Nothing runs on pull requests (T2.12 was never done). Risk #5 requires the Arabic check to run in CI, so this gap matters |
@@ -87,7 +88,7 @@ Open bugs: none known at blocking severity. The two broken external platforms ar
 | 3 Scope creep | Avoid | Yes. New requests go to `docs/BACKLOG.md` (the Stripe exception is recorded) |
 | 4 Content delay | Mitigate | Fallback applied. The annual-report text is live and no `TODO` placeholders show on project pages |
 | 5 RTL late | Mitigate | **Partly.** An Arabic Playwright + axe sweep exists (`tests/e2e/gate3-routes.spec.ts`) and caught an AR mobile header overflow today. It is not in CI because CI does not exist, and there is no screenshot diff |
-| 6 Rules untested | Mitigate | **Suite written, not run in this session.** Must pass on the emulator before staging gets real data |
+| 6 Rules untested | Mitigate | **Yes.** 13/13 pass on the emulator, after fixing a real hole (editors could write campaigns) |
 | 7 Reference collision | Avoid | Yes. Check-and-retry generator + unit test |
 | 8 AR reviewer | Accept | Fallback note is now visible on content pages. Strings were never sent for review |
 | 9 Spam / rate limit | Mitigate | **Not tested** against realistic abuse |
@@ -100,7 +101,7 @@ Open bugs: none known at blocking severity. The two broken external platforms ar
 ## 7. Demo prep (do before 27 Nov, in order)
 
 1. Merge the branch, deploy to staging with `.env.example` filled in, including `SITE_NOINDEX=true`, `NEXT_PUBLIC_SITE_URL` and `REVALIDATE_SECRET`.
-2. `pnpm test:rules` on a machine with Java 21+ (risk #6). It must pass before step 3.
+2. Deploy the fixed `firestore.rules` to the staging Firebase project (the campaign-write fix must be live).
 3. `pnpm seed` against staging, then `pnpm make-admin` for the demo account.
 4. J1 needs one **published** campaign with a real goal, and donations enabled **on staging only**. The RIB shown comes from Firestore `settings`. Since the real RIB is unconfirmed, the board must either provide it or approve a value clearly labelled as a test. Do not invent one.
 5. Demo script changes: in step 2, click **Waraqa** or **Marche Verte**, not GODEM (TLS failure). In step 3, use **IQRAA** or **SmartED**, because GODEM's own platform link is broken.

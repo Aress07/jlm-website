@@ -1,13 +1,13 @@
 import "server-only";
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
-import { getStripeClient } from "@/lib/payments/stripe";
+import { getStripeClient, isCardPaymentsEnabled } from "@/lib/payments/stripe";
 import { reconcileCheckoutSession } from "@/lib/payments/reconcile";
 
 export async function POST(request: Request) {
   const signature = request.headers.get("stripe-signature");
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!signature || !webhookSecret || !process.env.STRIPE_SECRET_KEY) {
+  if (!signature || !webhookSecret || !isCardPaymentsEnabled()) {
     return NextResponse.json(
       { error: "Webhook not configured" },
       { status: 400 },

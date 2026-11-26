@@ -3,6 +3,7 @@ import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { RibBlock } from "@/components/donate/RibBlock";
+import { LinkButton } from "@/components/ui/Button";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
 // Shows a donor's own reference: never index it.
@@ -43,9 +44,24 @@ export default async function DonateThanksPage({
         <Card className="mt-6 max-w-md">
           <p>{t("cardSuccessNotice")}</p>
         </Card>
+      ) : method === "in-kind" ? (
+        <Card className="mt-6 max-w-md">
+          <p>{t("inKindThanksNotice")}</p>
+          <LinkButton href="/contact" className="mt-4">
+            {t("contactUs")}
+          </LinkButton>
+        </Card>
       ) : (
-        settings?.bank && (
-          <div className="mt-6 max-w-md">
+        <div className="mt-6 flex max-w-md flex-col gap-4">
+          {/* No-database mode has no reference: ask the donor to get in touch. */}
+          {!ref && (
+            <p>
+              {settings?.bank
+                ? t("bankThanksNotice")
+                : t("bankUnavailableNotice")}
+            </p>
+          )}
+          {settings?.bank && (
             <RibBlock
               holder={settings.bank.holder}
               bankName={settings.bank.bankName}
@@ -54,8 +70,17 @@ export default async function DonateThanksPage({
               copyLabel={t("copy")}
               copiedLabel={t("copied")}
             />
-          </div>
-        )
+          )}
+          {!ref && (
+            <LinkButton
+              href="/contact"
+              variant="secondary"
+              className="self-start"
+            >
+              {t("contactUs")}
+            </LinkButton>
+          )}
+        </div>
       )}
     </Container>
   );

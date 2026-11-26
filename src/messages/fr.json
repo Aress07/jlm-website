@@ -8,7 +8,8 @@
     "loading": "Chargement...",
     "error": "Une erreur est survenue",
     "retry": "Réessayer",
-    "openInNewTab": "Ouvre dans un nouvel onglet"
+    "openInNewTab": "Ouvre dans un nouvel onglet",
+    "formUnavailable": "Le formulaire n'est pas disponible pour le moment. Écrivez-nous directement :"
   },
   "nav": {
     "about": "À propos",
@@ -116,7 +117,11 @@
     "viewCampaign": "Voir la campagne",
     "payByCard": "Payer par carte",
     "cardRedirectNotice": "Vous serez redirigé vers une page de paiement sécurisée pour saisir votre carte.",
-    "progressLabel": "Progression de la collecte"
+    "progressLabel": "Progression de la collecte",
+    "bankThanksNotice": "Merci ! Pour finaliser votre don, effectuez un virement sur le compte ci-dessous, puis contactez-nous en indiquant votre nom afin que nous puissions vous remercier.",
+    "bankUnavailableNotice": "Merci ! Contactez-nous pour recevoir nos coordonnées bancaires.",
+    "inKindThanksNotice": "Merci ! Contactez-nous pour organiser le dépôt ou la collecte de votre don.",
+    "contactUs": "Nous contacter"
   },
   "projects": {
     "title": "Nos projets",

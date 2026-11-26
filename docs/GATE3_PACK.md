@@ -101,6 +101,9 @@ Open bugs: none known at blocking severity. The two broken external platforms ar
 
 ## 7. Demo prep (do before 27 Nov, in order)
 
+> **Updated 26 Nov (evening):** the team chose to deploy on **Vercel in no-database mode** (docs/DECISIONS.md). Steps 2–4 below (rules, seed, admin) no longer apply. Instead: set the environment variables listed in `.env.example` (no-database section + Stripe), publish one campaign in `content/seed/campaigns.json` (real title, text, goal and dates), and register a Stripe webhook to `https://<site>/api/webhooks/stripe`. **Demo script changes:** step 4 becomes campaign → card payment → thank-you page → progress bar updated from Stripe (no "mark received" in admin); step 6 (publish from admin) is dropped. Tell the jury this was a deliberate scope decision.
+
+
 1. Merge the branch, deploy to staging with `.env.example` filled in, including `SITE_NOINDEX=true`, `NEXT_PUBLIC_SITE_URL` and `REVALIDATE_SECRET`.
 2. Deploy the fixed `firestore.rules` to the staging Firebase project (the campaign-write fix must be live).
 3. `pnpm seed` against staging, then `pnpm make-admin` for the demo account.

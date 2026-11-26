@@ -8,7 +8,8 @@
     "loading": "Loading...",
     "error": "Something went wrong",
     "retry": "Retry",
-    "openInNewTab": "Opens in a new tab"
+    "openInNewTab": "Opens in a new tab",
+    "formUnavailable": "The form isn't available right now. Write to us directly:"
   },
   "nav": {
     "about": "About",
@@ -116,7 +117,11 @@
     "viewCampaign": "View campaign",
     "payByCard": "Pay by card",
     "cardRedirectNotice": "You will be taken to a secure payment page to enter your card.",
-    "progressLabel": "Fundraising progress"
+    "progressLabel": "Fundraising progress",
+    "bankThanksNotice": "Thank you! To complete your donation, make a bank transfer to the account below, then contact us with your name so we can thank you.",
+    "bankUnavailableNotice": "Thank you! Contact us to receive our bank details.",
+    "inKindThanksNotice": "Thank you! Contact us to arrange the drop-off or pick-up of your donation.",
+    "contactUs": "Contact us"
   },
   "projects": {
     "title": "Our projects",

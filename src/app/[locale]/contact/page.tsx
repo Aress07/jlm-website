@@ -5,6 +5,8 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { isConfigured } from "@/lib/id-card/contact";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
 import { FormMessages } from "@/components/ui/FormMessages";
+import { FormUnavailable } from "@/components/sections/FormUnavailable";
+import { canAcceptFormMessages } from "@/lib/forms/availability";
 
 export function generateMetadata({
   params,
@@ -34,9 +36,13 @@ export default async function ContactPage({
       <p className="text-muted mt-2 max-w-prose">{t("intro")}</p>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[2fr_1fr]">
-        <FormMessages namespaces={["contact"]}>
-          <ContactForm />
-        </FormMessages>
+        {canAcceptFormMessages() ? (
+          <FormMessages namespaces={["contact"]}>
+            <ContactForm />
+          </FormMessages>
+        ) : (
+          <FormUnavailable />
+        )}
 
         <aside className="flex flex-col gap-2 text-sm">
           {isConfigured(email) && (

@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/Card";
 import { JoinForm } from "@/components/sections/JoinForm";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
 import { FormMessages } from "@/components/ui/FormMessages";
+import { FormUnavailable } from "@/components/sections/FormUnavailable";
+import { canAcceptFormMessages } from "@/lib/forms/availability";
 
 export function generateMetadata({
   params,
@@ -44,10 +46,12 @@ export default async function JoinPage({
       <div className="mt-10 max-w-lg">
         {settings?.joinOpen === false ? (
           <p className="text-muted">{t("closedNotice")}</p>
-        ) : (
+        ) : canAcceptFormMessages() ? (
           <FormMessages namespaces={["join"]}>
             <JoinForm poles={poles} />
           </FormMessages>
+        ) : (
+          <FormUnavailable />
         )}
       </div>
     </Container>

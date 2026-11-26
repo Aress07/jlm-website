@@ -102,7 +102,7 @@ export default async function IdCardPage({
                   <dt className="text-text/75 text-xs">
                     {resolveLocalized(stat.label, locale).text}
                   </dt>
-                  <dd className="text-primary text-xl font-medium">
+                  <dd className="text-text text-xl font-medium">
                     <bdi dir="ltr">{format.format(stat.value)}</bdi>
                   </dd>
                 </div>

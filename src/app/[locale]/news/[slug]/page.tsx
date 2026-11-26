@@ -90,7 +90,7 @@ export default async function PostPage({ params }: { params: Params }) {
 
       <article className="mt-6">
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <span className="bg-tint-violet text-primary rounded-full px-2.5 py-1 font-medium">
+          <span className="bg-tint-violet text-text rounded-full px-2.5 py-1 font-medium">
             {post.type === "ad" ? t("sponsored") : t(postTypeKey[post.type])}
           </span>
           <time dateTime={post.publishAt.toISOString()} className="text-muted">

@@ -66,7 +66,7 @@ export default async function PlatformsHubPage({
       <nav aria-label={t("title")} className="mt-6 flex flex-wrap gap-2">
         <Link
           href="/platforms"
-          className={`rounded-full border px-3 py-1 text-sm ${!type ? "border-primary bg-primary/10 text-primary" : "border-black/10"}`}
+          className={`rounded-full border px-3 py-1 text-sm ${!type ? "border-primary bg-primary text-primary-contrast" : "border-black/10"}`}
         >
           {t("filterAll")}
         </Link>
@@ -74,7 +74,7 @@ export default async function PlatformsHubPage({
           <Link
             key={kind}
             href={`/platforms?type=${kind}`}
-            className={`rounded-full border px-3 py-1 text-sm ${type === kind ? "border-primary bg-primary/10 text-primary" : "border-black/10"}`}
+            className={`rounded-full border px-3 py-1 text-sm ${type === kind ? "border-primary bg-primary text-primary-contrast" : "border-black/10"}`}
           >
             {t(kindFilterKey[kind])}
           </Link>

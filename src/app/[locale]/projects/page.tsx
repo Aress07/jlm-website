@@ -39,7 +39,7 @@ export default async function ProjectsPage({
       <nav aria-label={t("title")} className="mt-6 flex flex-wrap gap-2">
         <Link
           href="/projects"
-          className={`rounded-full border px-3 py-1 text-sm ${!poleFilter ? "border-primary bg-primary/10 text-primary" : "border-black/10"}`}
+          className={`rounded-full border px-3 py-1 text-sm ${!poleFilter ? "border-primary bg-primary text-primary-contrast" : "border-black/10"}`}
         >
           {t("filterAll")}
         </Link>
@@ -49,7 +49,7 @@ export default async function ProjectsPage({
             <Link
               key={pole.slug}
               href={`/projects?pole=${pole.slug}`}
-              className={`rounded-full border px-3 py-1 text-sm ${poleFilter === pole.slug ? "border-primary bg-primary/10 text-primary" : "border-black/10"}`}
+              className={`rounded-full border px-3 py-1 text-sm ${poleFilter === pole.slug ? "border-primary bg-primary text-primary-contrast" : "border-black/10"}`}
             >
               {name.text}
             </Link>

@@ -19,11 +19,18 @@ export function Header() {
   return (
     <header className="bg-bg/90 sticky top-0 z-40 border-b border-black/[0.06] backdrop-blur">
       <Container className="flex h-[72px] items-center justify-between gap-4">
+        {/* Below lg the header shows the short "JLM" mark: the full name
+            wrapped to three lines in Arabic at 390 px and overflowed the bar
+            (risk #5). The accessible name starts with the visible "JLM"
+            (WCAG 2.5.3 label in name) and adds the full site name. */}
         <Link
           href="/"
-          className="text-text text-lg font-semibold tracking-tight"
+          className="text-text shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap"
         >
-          {common("siteName")}
+          <span className="lg:hidden">
+            JLM<span className="sr-only"> — {common("siteName")}</span>
+          </span>
+          <span className="hidden lg:inline">{common("siteName")}</span>
         </Link>
         <nav
           aria-label={t("menu")}

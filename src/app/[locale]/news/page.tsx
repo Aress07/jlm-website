@@ -42,7 +42,7 @@ export default async function NewsPage({
   const filtered = type ? posts.filter((p) => p.type === type) : posts;
 
   const chip = (active: boolean) =>
-    `inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${active ? "border-primary bg-primary/10 text-primary" : "border-black/10 hover:bg-black/5"}`;
+    `inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${active ? "border-primary bg-primary text-primary-contrast" : "border-black/10 hover:bg-black/5"}`;
 
   return (
     <Container className="py-12">

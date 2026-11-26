@@ -210,7 +210,11 @@
   },
   "legal": {
     "privacyTitle": "Privacy policy",
-    "noticeTitle": "Legal notice"
+    "noticeTitle": "Legal notice",
+    "noticeOrgPending": "Legal name of the association, registered address and publication director: being confirmed by the association's board.",
+    "noticeContact": "Contact:",
+    "noticeContactPending": "Contact: through the site's Contact page.",
+    "noticeHostLabel": "Hosting:"
   },
   "imagery": {
     "hero": "Aerial view of Casablanca with the Hassan II Mosque on the horizon",

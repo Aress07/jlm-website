@@ -210,7 +210,11 @@
   },
   "legal": {
     "privacyTitle": "Politique de confidentialité",
-    "noticeTitle": "Mentions légales"
+    "noticeTitle": "Mentions légales",
+    "noticeOrgPending": "Nom légal de l'association, adresse du siège et directeur de la publication : en cours de validation par le bureau de l'association.",
+    "noticeContact": "Contact :",
+    "noticeContactPending": "Contact : via la page Contact du site.",
+    "noticeHostLabel": "Hébergement :"
   },
   "imagery": {
     "hero": "Vue aérienne de Casablanca, avec la mosquée Hassan II à l'horizon",

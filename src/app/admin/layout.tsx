@@ -29,12 +29,15 @@ export default function AdminRootLayout({
           // content/seed/*.json and redeployed, so there is no admin panel.
           <main className="mx-auto max-w-lg px-6 py-24 text-center">
             <h1 className="text-2xl font-semibold">
-              Administration indisponible
+              Administration : prévue en phase 4
             </h1>
             <p className="text-muted mt-3">
-              Ce site fonctionne sans base de données : le contenu se modifie
-              dans le code (content/seed) puis est redéployé. Les dons par carte
-              sont consultables dans le tableau de bord Stripe.
+              Ce prototype fonctionne sans base de données : le contenu se
+              modifie dans le code (content/seed) puis est redéployé, et les
+              dons par carte se consultent dans le tableau de bord Stripe. Le
+              panneau d&apos;administration (publication d&apos;actualités,
+              suivi des promesses de don) sera activé en phase 4, une fois la
+              base de données connectée.
             </p>
           </main>
         )}

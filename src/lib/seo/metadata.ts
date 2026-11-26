@@ -52,7 +52,18 @@ export function pageMetadata({
   noindex?: boolean;
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, path));
-  const images = image ? [{ url: image }] : undefined;
+  // Pages without their own cover share the per-locale brand card
+  // (public/images/brand/og-{locale}.png, 1200×630; the Arabic one is RTL).
+  const images = image
+    ? [{ url: image }]
+    : [
+        {
+          url: absoluteUrl(`/images/brand/og-${locale}.png`),
+          width: 1200,
+          height: 630,
+          alt: "JLM ENSAM Casablanca",
+        },
+      ];
 
   return {
     title,
@@ -77,13 +88,13 @@ export function pageMetadata({
       ),
       type,
       ...(publishedTime && { publishedTime: publishedTime.toISOString() }),
-      ...(images && { images }),
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      ...(images && { images }),
+      images,
     },
     ...(noindex && { robots: { index: false, follow: true } }),
   };

@@ -3,7 +3,7 @@ import "server-only";
 /**
  * In-memory IP rate limiter (master plan Section 8.5/8.7: 5 pledges per 10
  * minutes). Good enough for a single long-lived server process; resets on
- * redeploy and does not share state across multiple instances. If Netlify
+ * redeploy and does not share state across multiple instances. If Vercel
  * runs this as several concurrent function instances, swap for a shared
  * store (e.g. a Firestore counter doc) — tracked in docs/BACKLOG.md.
  */

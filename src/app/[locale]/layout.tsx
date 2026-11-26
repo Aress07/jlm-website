@@ -8,6 +8,7 @@ import { SkipLink } from "@/components/layout/SkipLink";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "@/styles/globals.css";
+import { getSiteUrl } from "@/lib/seo/site-url";
 
 // One friendly sans for Latin (Figtree, the closest free match to the
 // custom sans on alan.com that inspired the 2026-11-20 redesign) and Cairo
@@ -37,9 +38,7 @@ export const revalidate = 60;
 const noindex = process.env.SITE_NOINDEX === "true";
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+  metadataBase: new URL(getSiteUrl()),
   // Every page sets its own translated title (src/lib/seo); this adds the
   // site name. The home page is in this same segment, so the template does
   // not apply to it and it keeps its own full title.

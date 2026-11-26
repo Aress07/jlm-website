@@ -13,10 +13,10 @@ T3.11, assembled 26 Nov 2026 per `JLM_PHASE3_DEMO_EXECUTION_PLAN.md` Section 8. 
 | T3.3 Platforms hub | Built | `0eee3aa` | 2 of 9 external links are broken on the platform side (Section 6, risk #12) |
 | T3.4 News and ads | **Built today** | `a372789` | No generated OG image per post |
 | T3.5 Donation module | Built, switched off | `d1a17d8`, `e7deaaa` | `donationsEnabled: false`; all 4 seeded campaigns unpublished, with a placeholder goal of 1 MAD |
-| T3.6 Admin panel | Partial | `e7deaaa` | No image uploader, no autosave or preview, no dedicated 403 screen, no CRUD for stats, team, partners or users |
+| T3.6 Admin panel | **Phase 4** (built, not deployed) | `e7deaaa` | The admin code exists and was tested locally against the emulator, but the deployed prototype runs **without a database** (team decision, DECISIONS 2026-11-26), so the admin shows "Administration : prévue en phase 4". Also still missing: image uploader, autosave/preview, 403 screen, CRUD for stats/team/partners/users |
 | T3.7 Multilingual | Partial | `cfcbaa0` + all | Interface: 236 keys in fr/ar/en, AR and EN **not native-reviewed**. Content: 0 of 149 fields translated, fallback note visible |
 | T3.8 Impact page | **Built today** | `357dade` | Static caravan map missing (no image or location list supplied) |
-| T3.9 SEO and sharing | **Built today** | `9fff0c9` | No generated OG images, no BreadcrumbList. Rich Results test not run (needs a public URL) |
+| T3.9 SEO and sharing | **Built today** | `9fff0c9` + later | Per-locale sharing images (1200×630, Arabic RTL) used by every page without its own cover. No BreadcrumbList. Rich Results test not run |
 | T3.10 Content load | Fallback | — | No project lead sent content by the 20 Nov deadline, so the 2026 annual-report text is used (risk #4 fallback) |
 | J5 ID card (`/id`) | **Built today** | `990b117` | Logo is a text mark until the board sends logo files. Contacts are hidden until the board sets them |
 
@@ -28,8 +28,8 @@ None of the plan checkboxes are ticked. The rule is to tick only after the merge
 | --- | --- | --- |
 | 1 | 3 pôle and 9 project pages render in FR and AR with real seed content | Templates verified. Needs `pnpm seed` on staging to show it |
 | 2 | Hub links to all 8 platforms and 3 prototypes | Hub built. GODEM (TLS failure) and Get a Plet (404) are broken at the source |
-| 3 | A post published in admin is live within a minute | Code path is in place: the admin action revalidates `/[locale]/news` immediately, with a 60 s ISR floor. **Not demonstrated with real data** |
-| 4 | Full pledge, then marked received, updates the progress bar | Code is in place. **Blocked:** no published campaign and donations switched off (Section 7) |
+| 3 | A post published in admin is live within a minute | **Phase 4.** Works locally with the emulator, but the deployed prototype has no database, so no admin. Say so at the demo |
+| 4 | Full pledge, then marked received, updates the progress bar | **Card donations: yes** (Stripe test mode; the progress bar is read from Stripe and updates right after payment, on a labelled demo campaign). **Bank transfer "marked received": Phase 4** (needs the admin/database) |
 | 5 | No blocking bug on J1, J5, J6 | J5 verified locally. J1 and J6 not verified with data |
 | 6 | Lighthouse mobile budgets on Home, a project page, the campaign page and `/id` | **Not run** (Section 3) |
 

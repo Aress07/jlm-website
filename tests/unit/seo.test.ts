@@ -1,4 +1,5 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
+import { getSiteUrl } from "@/lib/seo/site-url";
 import {
   jsonLd,
   languageAlternates,
@@ -8,6 +9,25 @@ import {
 import fr from "@/messages/fr.json";
 import ar from "@/messages/ar.json";
 import en from "@/messages/en.json";
+
+describe("getSiteUrl", () => {
+  const saved = { ...process.env };
+  afterEach(() => {
+    for (const k of ["NEXT_PUBLIC_SITE_URL", "VERCEL_PROJECT_PRODUCTION_URL"]) {
+      if (saved[k] === undefined) delete process.env[k];
+      else process.env[k] = saved[k];
+    }
+  });
+  it("prefers the explicit URL, then Vercel's production domain, then localhost", () => {
+    delete process.env.NEXT_PUBLIC_SITE_URL;
+    delete process.env.VERCEL_PROJECT_PRODUCTION_URL;
+    expect(getSiteUrl()).toBe("http://localhost:3000");
+    process.env.VERCEL_PROJECT_PRODUCTION_URL = "jlm-website.vercel.app";
+    expect(getSiteUrl()).toBe("https://jlm-website.vercel.app");
+    process.env.NEXT_PUBLIC_SITE_URL = "https://jlm.example.org/";
+    expect(getSiteUrl()).toBe("https://jlm.example.org");
+  });
+});
 
 describe("localizedPath", () => {
   it("prefixes the locale and maps the home page to /{locale}", () => {
@@ -42,6 +62,26 @@ describe("pageMetadata", () => {
     );
     expect(meta.openGraph).toMatchObject({ locale: "ar_MA", title: "الأخبار" });
     expect(meta.robots).toBeUndefined();
+  });
+
+  it("uses the per-locale brand card when a page has no image", () => {
+    const meta = pageMetadata({
+      locale: "ar",
+      path: "/about",
+      title: "t",
+      description: "d",
+    });
+    expect(JSON.stringify(meta.openGraph)).toContain("/images/brand/og-ar.png");
+    expect(JSON.stringify(meta.twitter)).toContain("/images/brand/og-ar.png");
+    const withCover = pageMetadata({
+      locale: "fr",
+      path: "/news/x",
+      title: "t",
+      description: "d",
+      image: "/images/cover.webp",
+    });
+    expect(JSON.stringify(withCover.openGraph)).toContain("/images/cover.webp");
+    expect(JSON.stringify(withCover.openGraph)).not.toContain("og-fr.png");
   });
 
   it("marks utility pages noindex", () => {

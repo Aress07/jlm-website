@@ -207,5 +207,28 @@
     "body": "The link may be wrong or the page may have moved. You can find our projects and actions from the home page.",
     "backHome": "Back to home",
     "seeProjects": "See our projects"
+  },
+  "news": {
+    "title": "News",
+    "intro": "Announcements, field actions, calls for volunteers and reports from JLM ENSAM Casablanca.",
+    "filterLabel": "Filter by type",
+    "filterAll": "All",
+    "typeNews": "News",
+    "typeAnnouncement": "Announcement",
+    "typeAd": "Partner ad",
+    "typeVolunteerCall": "Call for volunteers",
+    "typeReport": "Report",
+    "sponsored": "Sponsored",
+    "pinned": "Pinned",
+    "empty": "No posts yet. Check back soon!",
+    "rssLink": "RSS feed",
+    "publishedOn": "Published on {date}",
+    "backToNews": "← All news",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied!",
+    "opensInNewTab": "opens in a new tab",
+    "relatedTitle": "Read also",
+    "sponsorTitle": "Content from our partner"
   }
 }

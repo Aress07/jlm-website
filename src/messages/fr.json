@@ -207,5 +207,28 @@
     "body": "Le lien est peut-être incorrect ou la page a été déplacée. Retrouvez nos projets et nos actions depuis l'accueil.",
     "backHome": "Retour à l'accueil",
     "seeProjects": "Voir nos projets"
+  },
+  "news": {
+    "title": "Actualités",
+    "intro": "Annonces, actions de terrain, appels à bénévoles et rapports de l'association JLM ENSAM Casablanca.",
+    "filterLabel": "Filtrer par type",
+    "filterAll": "Tout",
+    "typeNews": "Actualité",
+    "typeAnnouncement": "Annonce",
+    "typeAd": "Annonce partenaire",
+    "typeVolunteerCall": "Appel à bénévoles",
+    "typeReport": "Rapport",
+    "sponsored": "Sponsorisé",
+    "pinned": "Épinglé",
+    "empty": "Aucune publication pour le moment. Revenez bientôt !",
+    "rssLink": "Flux RSS",
+    "publishedOn": "Publié le {date}",
+    "backToNews": "← Toutes les actualités",
+    "share": "Partager",
+    "copyLink": "Copier le lien",
+    "linkCopied": "Lien copié !",
+    "opensInNewTab": "ouvre un nouvel onglet",
+    "relatedTitle": "À lire aussi",
+    "sponsorTitle": "Contenu proposé par notre partenaire"
   }
 }

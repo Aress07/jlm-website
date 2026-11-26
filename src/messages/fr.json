@@ -211,17 +211,6 @@
     "environment": "Village en terrasses et verdure dans le Haut Atlas, près d'Imlil",
     "entrepreneurship": "Poteries et tajines artisanaux dans la médina de Fès"
   },
-  "comingSoon": {
-    "badge": "Bientôt disponible",
-    "impactTitle": "Notre impact, très bientôt",
-    "impactBody": "Nous préparons une page dédiée à nos chiffres, nos actions phares et leur évolution depuis 2014. Elle arrive très prochainement.",
-    "newsTitle": "Les actualités arrivent",
-    "newsBody": "Annonces, actions de terrain et appels à bénévoles : cette page sera bientôt mise à jour par l'équipe JLM.",
-    "idTitle": "Notre carte d'identité arrive",
-    "idBody": "Une carte de visite numérique à partager, avec nos coordonnées et un QR code, sera bientôt disponible.",
-    "backHome": "Retour à l'accueil",
-    "contactUs": "Nous contacter"
-  },
   "notFound": {
     "title": "Cette page est introuvable",
     "body": "Le lien est peut-être incorrect ou la page a été déplacée. Retrouvez nos projets et nos actions depuis l'accueil.",
@@ -250,5 +239,18 @@
     "opensInNewTab": "ouvre un nouvel onglet",
     "relatedTitle": "À lire aussi",
     "sponsorTitle": "Contenu proposé par notre partenaire"
+  },
+  "impact": {
+    "title": "Notre impact",
+    "intro": "Les chiffres de nos actions de solidarité, d'environnement et d'entrepreneuriat social, projet par projet, avec leur source.",
+    "figuresTitle": "L'année en chiffres ({year})",
+    "sinceTitle": "Depuis 2014",
+    "projectsTitle": "Projet par projet",
+    "projectsIntro": "Ouvrez un projet pour voir ses chiffres clés.",
+    "methodTitle": "Comment nous comptons",
+    "methodBody": "Chaque chiffre de cette page provient d'un document de l'association et porte sa date. Nous ne publions que des chiffres issus de nos bilans : quand une valeur est approximative, elle est signalée comme telle.",
+    "sourceLine": "Source : {source} (chiffres {asOf})",
+    "ctaDonate": "Soutenir nos actions",
+    "ctaProjects": "Découvrir nos projets"
   }
 }

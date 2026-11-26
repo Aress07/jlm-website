@@ -2,7 +2,6 @@ import "server-only";
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripeClient, isCardPaymentsEnabled } from "@/lib/payments/stripe";
-import { reconcileCheckoutSession } from "@/lib/payments/reconcile";
 import { revalidatePath } from "next/cache";
 import { hasDatabase } from "@/lib/firebase/mode";
 
@@ -30,6 +29,9 @@ export async function POST(request: Request) {
 
   if (event.type === "checkout.session.completed") {
     if (hasDatabase()) {
+      // Loaded only with a database (see src/lib/firebase/lazy.ts).
+      const { reconcileCheckoutSession } =
+        await import("@/lib/payments/reconcile");
       await reconcileCheckoutSession(
         event.data.object as Stripe.Checkout.Session,
       );

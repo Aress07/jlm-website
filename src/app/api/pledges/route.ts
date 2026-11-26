@@ -1,6 +1,6 @@
 import "server-only";
 import { NextResponse } from "next/server";
-import { getAdminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/firebase/lazy";
 import { pledgeInputSchema } from "@/lib/validation/schemas";
 import { generatePledgeReference } from "@/lib/validation/reference";
 import { verifyTurnstile } from "@/lib/security/turnstile";
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     return handleWithoutDatabase(request, input, settings, ip);
   }
 
-  const db = getAdminDb();
+  const db = await adminDb();
 
   const campaignDoc = await db
     .collection("campaigns")

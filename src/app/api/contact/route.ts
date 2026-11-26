@@ -1,6 +1,6 @@
 import "server-only";
 import { NextResponse } from "next/server";
-import { getAdminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/firebase/lazy";
 import { contactFormSchema } from "@/lib/validation/schemas";
 import { verifyTurnstile } from "@/lib/security/turnstile";
 import { isRateLimited, clientIpFrom } from "@/lib/security/rate-limit";
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Form unavailable" }, { status: 503 });
   }
   if (hasDatabase()) {
-    await getAdminDb().collection("contactMessages").add({
+    await (await adminDb()).collection("contactMessages").add({
       name: input.name,
       email: input.email,
       topic: input.topic,

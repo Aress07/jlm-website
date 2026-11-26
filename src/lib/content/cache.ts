@@ -1,5 +1,5 @@
 import "server-only";
-import { getAdminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/firebase/lazy";
 import { hasDatabase } from "@/lib/firebase/mode";
 import { seedCollection, seedDoc } from "@/lib/content/seed-source";
 
@@ -26,7 +26,7 @@ export function cachedCollection<T>(
       return results;
     }
     try {
-      const snapshot = await getAdminDb().collection(collection).get();
+      const snapshot = await (await adminDb()).collection(collection).get();
       const results: T[] = [];
       for (const doc of snapshot.docs) {
         const parsed = parse(doc.data(), doc.id);
@@ -54,7 +54,12 @@ export function cachedDoc<T>(
       return data ? parse(data, id) : null;
     }
     try {
-      const snapshot = await getAdminDb().collection(collection).doc(id).get();
+      const snapshot = await (
+        await adminDb()
+      )
+        .collection(collection)
+        .doc(id)
+        .get();
       if (!snapshot.exists) return null;
       return parse(snapshot.data() as Record<string, unknown>, snapshot.id);
     } catch (error) {

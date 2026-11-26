@@ -1,5 +1,5 @@
 import "server-only";
-import { getAdminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/firebase/lazy";
 import { settingsSchema, type Settings } from "@/lib/validation/schemas";
 import { hasDatabase } from "@/lib/firebase/mode";
 import {
@@ -13,7 +13,9 @@ export async function getPublicSettings(): Promise<PublicSettings | null> {
   // No-database mode: contact and bank details come from the environment.
   if (!hasDatabase()) return settingsFromEnv(process.env);
   try {
-    const snapshot = await getAdminDb()
+    const snapshot = await (
+      await adminDb()
+    )
       .collection("settingsPublic")
       .doc("site")
       .get();
@@ -31,7 +33,12 @@ export async function getPublicSettings(): Promise<PublicSettings | null> {
  * public pages. Use `getPublicSettings` for anything rendered on the site.
  */
 export async function getAdminSettings(): Promise<Settings | null> {
-  const snapshot = await getAdminDb().collection("settings").doc("site").get();
+  const snapshot = await (
+    await adminDb()
+  )
+    .collection("settings")
+    .doc("site")
+    .get();
   if (!snapshot.exists) return null;
   const parsed = settingsSchema.safeParse(snapshot.data());
   return parsed.success ? parsed.data : null;

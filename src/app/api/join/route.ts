@@ -1,6 +1,6 @@
 import "server-only";
 import { NextResponse } from "next/server";
-import { getAdminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/firebase/lazy";
 import { joinFormSchema } from "@/lib/validation/schemas";
 import { verifyTurnstile } from "@/lib/security/turnstile";
 import { isRateLimited, clientIpFrom } from "@/lib/security/rate-limit";
@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Form unavailable" }, { status: 503 });
   }
   if (hasDatabase()) {
-    await getAdminDb().collection("joinRequests").add({
+    await (await adminDb()).collection("joinRequests").add({
       name: input.name,
       school: input.school,
       year: input.year,

@@ -91,8 +91,7 @@
     "customAmount": "Autre montant",
     "paymentMethodLabel": "Mode de paiement",
     "paymentMethodBank": "Virement bancaire",
-    "paymentMethodCard": "Carte bancaire (mode test)",
-    "cardTestNotice": "Mode test : aucun paiement réel n'est débité. Démonstration en attendant la validation d'un compte marchand réel par le bureau.",
+    "paymentMethodCard": "Carte bancaire",
     "inKind": "Faire un don en nature",
     "inKindDescriptionLabel": "Décrivez votre don (objets, dépôt ou collecte)",
     "donorNameLabel": "Votre nom (optionnel)",
@@ -110,12 +109,13 @@
     "confirmationTitle": "Merci pour votre promesse de don",
     "referenceLabel": "Votre référence",
     "referenceInstruction": "Indiquez cette référence dans le libellé de votre virement.",
-    "cardSuccessNotice": "Paiement test reçu avec succès. Aucune somme réelle n'a été débitée — ceci est une démonstration.",
+    "cardSuccessNotice": "Paiement reçu avec succès. Merci pour votre don !",
     "shareCampaign": "Partager cette campagne",
     "copy": "Copier",
     "copied": "Copié !",
     "viewCampaign": "Voir la campagne",
-    "payByCard": "Payer par carte (test)"
+    "payByCard": "Payer par carte",
+    "cardRedirectNotice": "Vous serez redirigé vers une page de paiement sécurisée pour saisir votre carte."
   },
   "projects": {
     "title": "Nos projets",

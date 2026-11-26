@@ -162,7 +162,7 @@ export async function POST(request: Request) {
       await sendEmail({
         to: input.email,
         subject: confirmationSubject[input.locale] ?? confirmationSubject.fr,
-        html: `<p>${reference}</p><p>Test-mode card payment — no real money is charged.</p>`,
+        html: `<p>${reference}</p><p>Paiement par carte via notre prestataire de paiement sécurisé.</p>`,
       });
     }
 

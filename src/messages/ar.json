@@ -91,8 +91,7 @@
     "customAmount": "مبلغ آخر",
     "paymentMethodLabel": "طريقة الدفع",
     "paymentMethodBank": "حوالة بنكية",
-    "paymentMethodCard": "بطاقة بنكية (وضع تجريبي)",
-    "cardTestNotice": "وضع تجريبي: لا يتم خصم أي مبلغ حقيقي. عرض توضيحي بانتظار موافقة المكتب على حساب تجاري حقيقي.",
+    "paymentMethodCard": "بطاقة بنكية",
     "inKind": "تبرع عيني",
     "inKindDescriptionLabel": "صف تبرعك (أشياء، تسليم أو استلام)",
     "donorNameLabel": "اسمك (اختياري)",
@@ -110,12 +109,13 @@
     "confirmationTitle": "شكراً على تبرعكم",
     "referenceLabel": "رمز تبرعك",
     "referenceInstruction": "اكتب هذا الرمز في تفاصيل حوالتك البنكية.",
-    "cardSuccessNotice": "تم استلام الدفع التجريبي بنجاح. لم يتم خصم أي مبلغ حقيقي — هذا عرض توضيحي.",
+    "cardSuccessNotice": "تم استلام الدفع بنجاح. شكرًا على تبرعكم!",
     "shareCampaign": "مشاركة هذه الحملة",
     "copy": "نسخ",
     "copied": "تم النسخ!",
     "viewCampaign": "عرض الحملة",
-    "payByCard": "الدفع بالبطاقة (تجريبي)"
+    "payByCard": "الدفع بالبطاقة",
+    "cardRedirectNotice": "سيتم توجيهكم إلى صفحة دفع آمنة لإدخال بيانات بطاقتكم."
   },
   "projects": {
     "title": "مشاريعنا",

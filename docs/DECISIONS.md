@@ -2,6 +2,10 @@
 
 One paragraph per decision: context, decision, alternatives. Newest first.
 
+## 2026-11-26: No "test mode" wording on the public donation pages
+
+**Context:** the team asked to remove the "(mode test)" labels and demo notices from the card option, thank-you page and confirmation email. They will tell the Gate 3 jury themselves that payments run in Stripe test mode. **Decision:** neutral wording in fr/ar/en ("Carte bancaire", "Vous serez redirigé vers une page de paiement sécurisée…", "Paiement reçu avec succès"). The safety net is code, not copy: `stripeKeyStatus()` refuses live keys, so the card option only exists with a test key, and real cards are declined in Stripe test mode. Stripe's own Checkout page still shows its sandbox badge; that cannot be changed from our side. **Before any real launch:** go live only with a real merchant agreement (docs/BACKLOG.md); until then, a public deployment with card enabled should get the notice back.
+
 ## 2026-11-26: Building in-scope modules on the planned freeze day
 
 **Context:** the day-by-day plan freezes the build on 25–26 Nov ("only bug fixes after this point"), but News (T3.4), Impact (T3.8), SEO (T3.9) and the ID card page (J5) were still "coming soon" placeholders. The Gate 3 demo script needs J5 and a News page for J6, and the Gate 3 pack requires "all 10 in-scope modules working". **Decision:** build these four in-scope items on 26 Nov rather than demo placeholders, with nothing outside the frozen scope added. Each item lands in its own commit so any one can be reverted alone if it destabilises the demo. **Alternative considered:** demo with the placeholders and push the modules to Phase 4. Rejected because it fails Gate 3 criteria 3 and 5 outright.

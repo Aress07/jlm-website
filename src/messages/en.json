@@ -91,8 +91,7 @@
     "customAmount": "Other amount",
     "paymentMethodLabel": "Payment method",
     "paymentMethodBank": "Bank transfer",
-    "paymentMethodCard": "Card (test mode)",
-    "cardTestNotice": "Test mode: no real money is charged. This is a demo pending the board's approval of a real merchant account.",
+    "paymentMethodCard": "Card",
     "inKind": "Give in kind",
     "inKindDescriptionLabel": "Describe your gift (items, drop-off or pickup)",
     "donorNameLabel": "Your name (optional)",
@@ -110,12 +109,13 @@
     "confirmationTitle": "Thank you for your pledge",
     "referenceLabel": "Your reference",
     "referenceInstruction": "Write this reference in your bank transfer label.",
-    "cardSuccessNotice": "Test payment received successfully. No real money was charged — this is a demo.",
+    "cardSuccessNotice": "Payment received successfully. Thank you for your donation!",
     "shareCampaign": "Share this campaign",
     "copy": "Copy",
     "copied": "Copied!",
     "viewCampaign": "View campaign",
-    "payByCard": "Pay by card (test)"
+    "payByCard": "Pay by card",
+    "cardRedirectNotice": "You will be taken to a secure payment page to enter your card."
   },
   "projects": {
     "title": "Our projects",

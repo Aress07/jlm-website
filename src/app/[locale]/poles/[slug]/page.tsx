@@ -7,6 +7,7 @@ import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
   params,
@@ -16,7 +17,12 @@ export async function generateMetadata({
   const { slug, locale } = await params;
   const pole = await getPole(slug);
   if (!pole) return {};
-  return { title: resolveLocalized(pole.name, locale as AppLocale).text };
+  return pageMetadata({
+    locale: locale as AppLocale,
+    path: `/poles/${pole.slug}`,
+    title: resolveLocalized(pole.name, locale as AppLocale).text,
+    description: resolveLocalized(pole.tagline, locale as AppLocale).text,
+  });
 }
 
 const poleAccentVar: Record<string, string> = {

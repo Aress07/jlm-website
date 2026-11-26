@@ -11,6 +11,8 @@ import { PledgeForm } from "@/components/donate/PledgeForm";
 import { LinkButton } from "@/components/ui/Button";
 import { ViewTracker } from "@/components/ui/ViewTracker";
 import { isCardPaymentsEnabled } from "@/lib/payments/stripe";
+import { pageMetadata, jsonLd, localizedPath } from "@/lib/seo/metadata";
+import { absoluteUrl, getSiteUrl } from "@/lib/seo/site-url";
 
 export async function generateMetadata({
   params,
@@ -20,8 +22,13 @@ export async function generateMetadata({
   const { campaign: slug, locale } = await params;
   const campaign = await getCampaign(slug);
   if (!campaign) return {};
-  const title = resolveLocalized(campaign.title, locale as AppLocale).text;
-  return { title };
+  return pageMetadata({
+    locale: locale as AppLocale,
+    path: `/donate/${campaign.slug}`,
+    title: resolveLocalized(campaign.title, locale as AppLocale).text,
+    description: resolveLocalized(campaign.summary, locale as AppLocale).text,
+    image: campaign.cover,
+  });
 }
 
 export default async function CampaignPage({
@@ -41,9 +48,29 @@ export default async function CampaignPage({
   // One-time computation for this request, not a client re-render concern.
   // eslint-disable-next-line react-hooks/purity
   const hasEnded = campaign.endsAt.getTime() < Date.now();
+  // DonateAction JSON-LD (master plan Section 7.12).
+  const donateAction = {
+    "@context": "https://schema.org",
+    "@type": "DonateAction",
+    name: title.text,
+    description: resolveLocalized(campaign.summary, locale).text,
+    url: absoluteUrl(localizedPath(locale, `/donate/${campaign.slug}`)),
+    recipient: {
+      "@type": "NGO",
+      name: "JLM ENSAM Casablanca",
+      url: getSiteUrl(),
+    },
+    priceCurrency: "MAD",
+    startTime: campaign.startsAt.toISOString(),
+    endTime: campaign.endsAt.toISOString(),
+  };
 
   return (
     <Container className="py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(donateAction) }}
+      />
       <ViewTracker event="donate_view" data={{ campaign: campaign.slug }} />
       <h1 className="text-4xl sm:text-5xl">{title.text}</h1>
       <p className="text-muted mt-4 max-w-prose">{story.text}</p>

@@ -3,6 +3,18 @@ import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { RibBlock } from "@/components/donate/RibBlock";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
+
+// Shows a donor's own reference: never index it.
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "donateThanks", "/donate/thanks", {
+    noindex: true,
+  });
+}
 
 export default async function DonateThanksPage({
   searchParams,

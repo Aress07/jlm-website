@@ -1,12 +1,18 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { getPoles } from "@/lib/content/poles";
 import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { JoinForm } from "@/components/sections/JoinForm";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Join us" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "join", "/join");
+}
 
 export default async function JoinPage() {
   const t = await getTranslations("join");

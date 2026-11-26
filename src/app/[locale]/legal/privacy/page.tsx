@@ -1,8 +1,14 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Privacy policy" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "legalPrivacy", "/legal/privacy");
+}
 
 export default async function PrivacyPage() {
   const t = await getTranslations("legal");

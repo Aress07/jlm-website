@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { getPlatforms } from "@/lib/content/platforms";
 import { getProjects } from "@/lib/content/projects";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
@@ -8,8 +7,15 @@ import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
 import { PlatformLink } from "@/components/sections/PlatformLink";
 import type { Platform } from "@/lib/validation/schemas";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Platforms" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "platforms", "/platforms");
+}
 
 const KINDS: Exclude<Platform["kind"], "prototype">[] = [
   "platform",

@@ -1,13 +1,19 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { getCampaigns, getActiveCampaigns } from "@/lib/content/campaigns";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/donate/ProgressBar";
 import { Link } from "@/lib/i18n/navigation";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Donate" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "donate", "/donate");
+}
 
 export default async function DonateListPage({
   params,

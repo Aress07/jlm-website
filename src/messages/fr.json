@@ -252,5 +252,29 @@
     "sourceLine": "Source : {source} (chiffres {asOf})",
     "ctaDonate": "Soutenir nos actions",
     "ctaProjects": "Découvrir nos projets"
+  },
+  "seo": {
+    "homeTitle": "JLM ENSAM Casablanca — Ce qu'on transmet reste",
+    "homeDescription": "Jeunes Leaders Marocains, l'association humanitaire étudiante de l'ENSAM Casablanca depuis 2014 : 9 projets en solidarité, environnement et entrepreneuriat social.",
+    "aboutTitle": "À propos de JLM",
+    "aboutDescription": "L'histoire, la mission et les trois pôles de JLM ENSAM Casablanca, association humanitaire étudiante active depuis 2014.",
+    "contactTitle": "Contact",
+    "contactDescription": "Écrivez à JLM ENSAM Casablanca : question générale, partenariat, presse, bénévolat ou demande d'un bénéficiaire.",
+    "donateTitle": "Faire un don",
+    "donateDescription": "Soutenez les campagnes de JLM ENSAM Casablanca par une promesse de don, en argent ou en nature.",
+    "donateThanksTitle": "Merci pour votre promesse de don",
+    "donateThanksDescription": "Votre référence de don et les informations pour effectuer votre virement.",
+    "joinTitle": "Nous rejoindre",
+    "joinDescription": "Rejoignez les 135 membres actifs de JLM dans l'un de nos trois pôles, ou engagez-vous via JLM Junior et le bénévolat ponctuel.",
+    "legalNoticeTitle": "Mentions légales",
+    "legalNoticeDescription": "Mentions légales du site de l'association JLM ENSAM Casablanca.",
+    "legalPrivacyTitle": "Politique de confidentialité",
+    "legalPrivacyDescription": "Les données que JLM ENSAM Casablanca collecte via ses formulaires, pourquoi, combien de temps, et comment en demander la suppression.",
+    "partnersTitle": "Nos partenaires",
+    "partnersDescription": "Les partenaires institutionnels, sponsors et fournisseurs qui soutiennent JLM ENSAM Casablanca, et comment devenir partenaire.",
+    "platformsTitle": "Nos plateformes",
+    "platformsDescription": "8 plateformes et jeux et 3 prototypes développés par les membres de JLM : orientation, lecture, recyclage, patrimoine et plus.",
+    "projectsTitle": "Nos projets",
+    "projectsDescription": "Les 9 projets de JLM ENSAM Casablanca, répartis en trois pôles : solidarité, environnement et entrepreneuriat social."
   }
 }

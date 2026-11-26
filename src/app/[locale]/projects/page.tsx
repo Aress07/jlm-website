@@ -1,13 +1,19 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { getProjects } from "@/lib/content/projects";
 import { getPoles } from "@/lib/content/poles";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Projects" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "projects", "/projects");
+}
 
 export default async function ProjectsPage({
   params,

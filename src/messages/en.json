@@ -252,5 +252,29 @@
     "sourceLine": "Source: {source} ({asOf} figures)",
     "ctaDonate": "Support our work",
     "ctaProjects": "Discover our projects"
+  },
+  "seo": {
+    "homeTitle": "JLM ENSAM Casablanca — What we pass on, stays",
+    "homeDescription": "Jeunes Leaders Marocains, the student humanitarian association of ENSAM Casablanca since 2014: 9 projects in solidarity, environment and social entrepreneurship.",
+    "aboutTitle": "About JLM",
+    "aboutDescription": "The story, mission and three pôles of JLM ENSAM Casablanca, a student humanitarian association active since 2014.",
+    "contactTitle": "Contact",
+    "contactDescription": "Write to JLM ENSAM Casablanca: general questions, partnerships, press, volunteering or beneficiary requests.",
+    "donateTitle": "Donate",
+    "donateDescription": "Support JLM ENSAM Casablanca's campaigns with a pledge, in money or in kind.",
+    "donateThanksTitle": "Thank you for your pledge",
+    "donateThanksDescription": "Your pledge reference and the details to make your bank transfer.",
+    "joinTitle": "Join us",
+    "joinDescription": "Join JLM's 135 active members in one of our three pôles, or get involved through JLM Junior and one-off volunteering.",
+    "legalNoticeTitle": "Legal notice",
+    "legalNoticeDescription": "Legal notice for the JLM ENSAM Casablanca association website.",
+    "legalPrivacyTitle": "Privacy policy",
+    "legalPrivacyDescription": "What data JLM ENSAM Casablanca collects through its forms, why, for how long, and how to request its deletion.",
+    "partnersTitle": "Our partners",
+    "partnersDescription": "The institutional partners, sponsors and suppliers supporting JLM ENSAM Casablanca, and how to become a partner.",
+    "platformsTitle": "Our platforms",
+    "platformsDescription": "8 platforms and games and 3 prototypes built by JLM members: orientation, reading, recycling, heritage and more.",
+    "projectsTitle": "Our projects",
+    "projectsDescription": "JLM ENSAM Casablanca's 9 projects across three pôles: solidarity, environment and social entrepreneurship."
   }
 }

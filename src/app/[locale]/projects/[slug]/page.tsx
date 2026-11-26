@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { PlatformLink } from "@/components/sections/PlatformLink";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
   params,
@@ -17,7 +18,13 @@ export async function generateMetadata({
   const { slug, locale } = await params;
   const project = await getProject(slug);
   if (!project) return {};
-  return { title: resolveLocalized(project.name, locale as AppLocale).text };
+  return pageMetadata({
+    locale: locale as AppLocale,
+    path: `/projects/${project.slug}`,
+    title: resolveLocalized(project.name, locale as AppLocale).text,
+    description: resolveLocalized(project.tagline, locale as AppLocale).text,
+    image: project.cover,
+  });
 }
 
 export default async function ProjectDetailPage({

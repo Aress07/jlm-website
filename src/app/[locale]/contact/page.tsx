@@ -1,11 +1,17 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { isConfigured } from "@/lib/id-card/contact";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Contact" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "contact", "/contact");
+}
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");

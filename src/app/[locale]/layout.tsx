@@ -31,10 +31,22 @@ export function generateStaticParams() {
 // Applies to every page under [locale] unless a page sets its own.
 export const revalidate = 60;
 
+// Staging must stay out of search results (risk #11): set SITE_NOINDEX=true
+// there. robots.ts reads the same flag.
+const noindex = process.env.SITE_NOINDEX === "true";
+
 export const metadata: Metadata = {
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
     : undefined,
+  // Every page sets its own translated title (src/lib/seo); this adds the
+  // site name. The home page is in this same segment, so the template does
+  // not apply to it and it keeps its own full title.
+  title: {
+    default: "JLM ENSAM Casablanca",
+    template: "%s · JLM ENSAM Casablanca",
+  },
+  ...(noindex && { robots: { index: false, follow: false } }),
 };
 
 export default async function LocaleLayout({

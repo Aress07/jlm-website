@@ -1,11 +1,17 @@
 import { getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
 import { getPartners } from "@/lib/content/partners";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import type { Partner } from "@/lib/validation/schemas";
+import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
-export const metadata: Metadata = { title: "Partners" };
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  return staticPageMetadata(params, "partners", "/partners");
+}
 
 const tierTitleKey: Record<Partner["tier"], string> = {
   institutional: "institutional",

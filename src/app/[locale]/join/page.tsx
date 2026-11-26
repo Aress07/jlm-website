@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { JoinForm } from "@/components/sections/JoinForm";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
+import { FormMessages } from "@/components/ui/FormMessages";
 
 export function generateMetadata({
   params,
@@ -44,7 +45,9 @@ export default async function JoinPage({
         {settings?.joinOpen === false ? (
           <p className="text-muted">{t("closedNotice")}</p>
         ) : (
-          <JoinForm poles={poles} />
+          <FormMessages namespaces={["join"]}>
+            <JoinForm poles={poles} />
+          </FormMessages>
         )}
       </div>
     </Container>

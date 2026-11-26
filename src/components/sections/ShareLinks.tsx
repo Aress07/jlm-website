@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
 import { trackEvent } from "@/lib/analytics/track";
 
 const linkClasses =
@@ -11,8 +10,22 @@ const linkClasses =
  * Copy link, WhatsApp, Facebook, LinkedIn (master plan Section 7.7, post
  * page). Plain share URLs — no third-party SDK or script is loaded.
  */
-export function ShareLinks({ url, title }: { url: string; title: string }) {
-  const t = useTranslations("news");
+export type ShareLinksLabels = {
+  copyLink: string;
+  linkCopied: string;
+  opensInNewTab: string;
+};
+
+/** Labels are translated on the server and passed in (no client formatter). */
+export function ShareLinks({
+  url,
+  title,
+  labels,
+}: {
+  url: string;
+  title: string;
+  labels: ShareLinksLabels;
+}) {
   const [copied, setCopied] = useState(false);
   const encodedUrl = encodeURIComponent(url);
   const encodedText = encodeURIComponent(`${title} ${url}`);
@@ -48,7 +61,7 @@ export function ShareLinks({ url, title }: { url: string; title: string }) {
         }}
       >
         <span aria-live="polite">
-          {copied ? t("linkCopied") : t("copyLink")}
+          {copied ? labels.linkCopied : labels.copyLink}
         </span>
       </button>
       {targets.map((target) => (
@@ -61,7 +74,7 @@ export function ShareLinks({ url, title }: { url: string; title: string }) {
           onClick={() => trackEvent("share_click", { target: target.id })}
         >
           {target.label}
-          <span className="sr-only"> ({t("opensInNewTab")})</span>
+          <span className="sr-only"> ({labels.opensInNewTab})</span>
         </a>
       ))}
     </div>

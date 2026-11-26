@@ -74,7 +74,11 @@ export default async function LocaleLayout({
       className={`${latin.variable} ${arabic.variable}`}
     >
       <body>
-        <NextIntlClientProvider>
+        {/* messages={null}: interactive components get their text from the
+            server as props, so the full message catalogue is not sent with
+            every page. Form pages add their own provider with just their
+            section (see FormMessages). */}
+        <NextIntlClientProvider locale={locale} messages={null}>
           <SkipLink />
           <Header />
           <main id="main-content">{children}</main>

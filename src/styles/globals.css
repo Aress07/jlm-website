@@ -114,3 +114,10 @@ html[dir="rtl"] h6 {
     inset-inline-start: 100%;
   }
 }
+
+/* French fallback text on Arabic pages (FallbackNote.tsx): keep its own
+   left-to-right word order but align it with the RTL page. On a dir="ltr"
+   element, `end` means the right edge. */
+[dir="rtl"] [data-fallback] {
+  text-align: end;
+}

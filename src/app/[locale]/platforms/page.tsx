@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
 import { PlatformLink } from "@/components/sections/PlatformLink";
+import { getPlatformLinkLabels } from "@/components/sections/platform-link-labels";
 import { isImageSrc } from "@/lib/content/image-src";
 import type { Platform } from "@/lib/validation/schemas";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
@@ -41,6 +42,7 @@ export default async function PlatformsHubPage({
 }) {
   const { locale: localeParam } = await params;
   setRequestLocale(localeParam);
+  const platformLabels = await getPlatformLinkLabels();
   const locale = localeParam as AppLocale;
   const { type } = await searchParams;
   const t = await getTranslations("platforms");
@@ -96,7 +98,11 @@ export default async function PlatformsHubPage({
               <div className="flex flex-col gap-2">
                 {items.map((platform) => (
                   <Card key={platform.id}>
-                    <PlatformLink platform={platform} locale={locale} />
+                    <PlatformLink
+                      platform={platform}
+                      locale={locale}
+                      labels={platformLabels}
+                    />
                   </Card>
                 ))}
               </div>
@@ -121,7 +127,11 @@ export default async function PlatformsHubPage({
                     className="aspect-[16/10] w-full max-w-xl rounded-2xl object-cover"
                   />
                 )}
-                <PlatformLink platform={platform} locale={locale} />
+                <PlatformLink
+                  platform={platform}
+                  locale={locale}
+                  labels={platformLabels}
+                />
               </Card>
             ))}
           </div>

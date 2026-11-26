@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { PlatformLink } from "@/components/sections/PlatformLink";
+import { getPlatformLinkLabels } from "@/components/sections/platform-link-labels";
 import { ProjectLogo } from "@/components/sections/ProjectLogo";
 import { FallbackNote, fallbackAttrs } from "@/components/ui/FallbackNote";
 import { pageMetadata } from "@/lib/seo/metadata";
@@ -42,6 +43,7 @@ export default async function ProjectDetailPage({
 }) {
   const { slug, locale: localeParam } = await params;
   setRequestLocale(localeParam);
+  const platformLabels = await getPlatformLinkLabels();
   const locale = localeParam as AppLocale;
   const project = await getProject(slug);
   if (!project) notFound();
@@ -129,7 +131,11 @@ export default async function ProjectDetailPage({
           <div className="flex flex-col gap-2">
             {platforms.map((platform) => (
               <Card key={platform.id}>
-                <PlatformLink platform={platform} locale={locale} />
+                <PlatformLink
+                  platform={platform}
+                  locale={locale}
+                  labels={platformLabels}
+                />
               </Card>
             ))}
           </div>

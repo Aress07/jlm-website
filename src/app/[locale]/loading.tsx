@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import type { AppLocale } from "@/lib/content/locale";
+import { boundaryLabels } from "@/lib/i18n/boundary-labels";
 import { JLM_LOGO_SRC } from "@/lib/content/image-src";
 
 /**
@@ -12,10 +14,11 @@ import { JLM_LOGO_SRC } from "@/lib/content/image-src";
  *
  * Client component on purpose: a server-side `getTranslations` here runs
  * outside the layout's `setRequestLocale` and forced every page to render
- * per request (see not-found.tsx).
+ * per request. Its text comes from boundary-labels.ts rather than
+ * useTranslations, so no message formatter ships to the browser.
  */
 export default function Loading() {
-  const t = useTranslations("common");
+  const labels = boundaryLabels[useLocale() as AppLocale];
   return (
     <div
       role="status"
@@ -37,7 +40,7 @@ export default function Loading() {
       >
         <span className="bg-primary absolute inset-y-0 start-0 w-1/3 rounded-full motion-safe:animate-[jlm-loading-bar_1.2s_ease-in-out_infinite]" />
       </div>
-      <p className="text-muted text-sm">{t("loading")}</p>
+      <p className="text-muted text-sm">{labels.loading}</p>
     </div>
   );
 }

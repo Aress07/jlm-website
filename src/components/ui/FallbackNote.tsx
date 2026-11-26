@@ -17,7 +17,15 @@ export function FallbackNote({ show }: { show: boolean }) {
   );
 }
 
-/** `lang`/`dir` attributes for a text block that may be a French fallback. */
+/**
+ * Attributes for a text block that may be a French fallback: `lang="fr"`
+ * (screen readers switch voice) and `dir="ltr"` (French punctuation stays
+ * in place). On Arabic pages, globals.css right-aligns `[data-fallback]`
+ * blocks so they line up with the rest of the RTL layout instead of
+ * jumping to the left.
+ */
 export function fallbackAttrs(isFallback: boolean) {
-  return isFallback ? ({ lang: "fr", dir: "ltr" } as const) : {};
+  return isFallback
+    ? ({ lang: "fr", dir: "ltr", "data-fallback": "" } as const)
+    : {};
 }

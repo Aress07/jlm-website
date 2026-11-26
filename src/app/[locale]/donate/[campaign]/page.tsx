@@ -13,6 +13,7 @@ import { ViewTracker } from "@/components/ui/ViewTracker";
 import { isCardPaymentsEnabled } from "@/lib/payments/stripe";
 import { pageMetadata, jsonLd, localizedPath } from "@/lib/seo/metadata";
 import { absoluteUrl, getSiteUrl } from "@/lib/seo/site-url";
+import { FormMessages } from "@/components/ui/FormMessages";
 
 export async function generateMetadata({
   params,
@@ -115,11 +116,13 @@ export default async function CampaignPage({
         </div>
       ) : (
         <div className="mt-8 max-w-md">
-          <PledgeForm
-            campaignSlug={campaign.slug}
-            inKindAccepted={campaign.inKindAccepted}
-            cardPaymentsEnabled={isCardPaymentsEnabled()}
-          />
+          <FormMessages namespaces={["donate"]}>
+            <PledgeForm
+              campaignSlug={campaign.slug}
+              inKindAccepted={campaign.inKindAccepted}
+              cardPaymentsEnabled={isCardPaymentsEnabled()}
+            />
+          </FormMessages>
         </div>
       )}
     </Container>

@@ -52,6 +52,7 @@ export default async function IdCardPage({
   const t = await getTranslations("idCard");
   const common = await getTranslations("common");
   const home = await getTranslations("home");
+  const newsT = await getTranslations("news");
 
   const [stats, poles, contact] = await Promise.all([
     getStats(),
@@ -186,7 +187,15 @@ export default async function IdCardPage({
           <h2 id="id-share" className="mb-2 text-sm font-medium">
             {t("share")}
           </h2>
-          <ShareLinks url={cardUrl} title={common("siteName")} />
+          <ShareLinks
+            url={cardUrl}
+            title={common("siteName")}
+            labels={{
+              copyLink: newsT("copyLink"),
+              linkCopied: newsT("linkCopied"),
+              opensInNewTab: newsT("opensInNewTab"),
+            }}
+          />
         </section>
 
         <div className="flex flex-wrap gap-3">

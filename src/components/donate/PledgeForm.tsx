@@ -165,7 +165,9 @@ export function PledgeForm({
                 </label>
               </div>
               {paymentMethod === "card" && (
-                <p className="text-muted mt-1 text-xs">{t("cardRedirectNotice")}</p>
+                <p className="text-muted mt-1 text-xs">
+                  {t("cardRedirectNotice")}
+                </p>
               )}
             </div>
           )}

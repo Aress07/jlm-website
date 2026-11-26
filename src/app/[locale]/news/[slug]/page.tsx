@@ -162,7 +162,15 @@ export default async function PostPage({ params }: { params: Params }) {
           <h2 id="share-title" className="mb-3 text-lg font-medium">
             {t("share")}
           </h2>
-          <ShareLinks url={url} title={title.text} />
+          <ShareLinks
+            url={url}
+            title={title.text}
+            labels={{
+              copyLink: t("copyLink"),
+              linkCopied: t("linkCopied"),
+              opensInNewTab: t("opensInNewTab"),
+            }}
+          />
         </section>
       </article>
 

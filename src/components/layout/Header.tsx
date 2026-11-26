@@ -9,6 +9,7 @@ import { Container } from "@/components/ui/Container";
 export function Header() {
   const t = useTranslations("nav");
   const common = useTranslations("common");
+  const localeT = useTranslations("locale");
 
   const items: { href: string; label: string }[] = [
     { href: "/about", label: t("about") },
@@ -57,7 +58,16 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <LocaleSwitcher />
+          <LocaleSwitcher
+            labels={{
+              switchLabel: localeT("switchLabel"),
+              names: {
+                fr: localeT("fr"),
+                ar: localeT("ar"),
+                en: localeT("en"),
+              },
+            }}
+          />
           <LinkButton href="/donate" size="sm">
             {t("donate")}
           </LinkButton>

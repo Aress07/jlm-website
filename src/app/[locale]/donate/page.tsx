@@ -48,15 +48,20 @@ export default async function DonateListPage({
             const title = resolveLocalized(campaign.title, locale);
             return (
               <Link key={campaign.slug} href={`/donate/${campaign.slug}`}>
-                <Card className="h-full hover:-translate-y-1 hover:shadow-md">
+                <Card className="flex h-full flex-col gap-4 hover:-translate-y-1 hover:shadow-md">
                   <h3 className="text-xl">{title.text}</h3>
-                  <div className="mt-3">
-                    <ProgressBar
-                      label={t("progressLabel")}
-                      receivedMAD={campaign.receivedMAD}
-                      goalMAD={campaign.goalMAD}
-                    />
-                  </div>
+                  <ProgressBar
+                    label={t("progressLabel")}
+                    receivedMAD={campaign.receivedMAD}
+                    goalMAD={campaign.goalMAD}
+                  />
+                  {/* The whole card is the link; this makes it obvious. */}
+                  <span className="bg-primary text-primary-contrast mt-auto inline-flex min-h-11 items-center justify-center self-start rounded-xl px-5 font-medium">
+                    {t("donateNow")}
+                    <span aria-hidden="true" className="ms-2 rtl:rotate-180">
+                      →
+                    </span>
+                  </span>
                 </Card>
               </Link>
             );

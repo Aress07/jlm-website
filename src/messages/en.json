@@ -121,7 +121,8 @@
     "bankThanksNotice": "Thank you! To complete your donation, make a bank transfer to the account below, then contact us with your name so we can thank you.",
     "bankUnavailableNotice": "Thank you! Contact us to receive our bank details.",
     "inKindThanksNotice": "Thank you! Contact us to arrange the drop-off or pick-up of your donation.",
-    "contactUs": "Contact us"
+    "contactUs": "Contact us",
+    "donateNow": "Donate now"
   },
   "projects": {
     "title": "Our projects",

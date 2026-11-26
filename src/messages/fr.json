@@ -121,7 +121,8 @@
     "bankThanksNotice": "Merci ! Pour finaliser votre don, effectuez un virement sur le compte ci-dessous, puis contactez-nous en indiquant votre nom afin que nous puissions vous remercier.",
     "bankUnavailableNotice": "Merci ! Contactez-nous pour recevoir nos coordonnées bancaires.",
     "inKindThanksNotice": "Merci ! Contactez-nous pour organiser le dépôt ou la collecte de votre don.",
-    "contactUs": "Nous contacter"
+    "contactUs": "Nous contacter",
+    "donateNow": "Faire un don"
   },
   "projects": {
     "title": "Nos projets",

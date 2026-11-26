@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { PlatformLink } from "@/components/sections/PlatformLink";
+import { FallbackNote, fallbackAttrs } from "@/components/ui/FallbackNote";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -45,9 +46,26 @@ export default async function ProjectDetailPage({
 
   return (
     <Container className="py-12">
-      <h1 className="text-4xl sm:text-5xl">{name.text}</h1>
-      <p className="text-muted mt-2 text-lg">{tagline.text}</p>
-      <p className="mt-4 max-w-prose whitespace-pre-line">{description.text}</p>
+      <h1 className="text-4xl sm:text-5xl" {...fallbackAttrs(name.isFallback)}>
+        {name.text}
+      </h1>
+      <p
+        className="text-muted mt-2 text-lg"
+        {...fallbackAttrs(tagline.isFallback)}
+      >
+        {tagline.text}
+      </p>
+      <p
+        className="mt-4 max-w-prose whitespace-pre-line"
+        {...fallbackAttrs(description.isFallback)}
+      >
+        {description.text}
+      </p>
+      <div className="mt-4">
+        <FallbackNote
+          show={name.isFallback || tagline.isFallback || description.isFallback}
+        />
+      </div>
 
       {project.stats.length > 0 && (
         <section className="mt-8">
@@ -65,7 +83,12 @@ export default async function ProjectDetailPage({
                     </span>
                   )}
                 </dd>
-                <dt className="text-muted text-sm">
+                <dt
+                  className="text-muted text-sm"
+                  {...fallbackAttrs(
+                    resolveLocalized(stat.label, locale).isFallback,
+                  )}
+                >
                   {resolveLocalized(stat.label, locale).text}
                 </dt>
               </div>

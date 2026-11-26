@@ -7,6 +7,7 @@ import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
+import { FallbackNote, fallbackAttrs } from "@/components/ui/FallbackNote";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata({
@@ -54,9 +55,31 @@ export default async function PolePage({
         style={{ borderBottomColor: poleAccentVar[pole.slug] }}
       >
         <Container>
-          <h1 className="text-4xl sm:text-5xl">{name.text}</h1>
-          <p className="text-muted mt-2 text-lg">{tagline.text}</p>
-          <p className="mt-4 max-w-prose">{description.text}</p>
+          <h1
+            className="text-4xl sm:text-5xl"
+            {...fallbackAttrs(name.isFallback)}
+          >
+            {name.text}
+          </h1>
+          <p
+            className="text-muted mt-2 text-lg"
+            {...fallbackAttrs(tagline.isFallback)}
+          >
+            {tagline.text}
+          </p>
+          <p
+            className="mt-4 max-w-prose"
+            {...fallbackAttrs(description.isFallback)}
+          >
+            {description.text}
+          </p>
+          <div className="mt-4">
+            <FallbackNote
+              show={
+                name.isFallback || tagline.isFallback || description.isFallback
+              }
+            />
+          </div>
         </Container>
       </div>
 
@@ -69,8 +92,16 @@ export default async function PolePage({
             return (
               <Link key={project.slug} href={`/projects/${project.slug}`}>
                 <Card className="h-full transition-shadow hover:shadow-md">
-                  <h3 className="font-semibold">{projectName.text}</h3>
-                  <p className="text-muted mt-1 text-sm">
+                  <h3
+                    className="font-semibold"
+                    {...fallbackAttrs(projectName.isFallback)}
+                  >
+                    {projectName.text}
+                  </h3>
+                  <p
+                    className="text-muted mt-1 text-sm"
+                    {...fallbackAttrs(projectTagline.isFallback)}
+                  >
                     {projectTagline.text}
                   </p>
                 </Card>

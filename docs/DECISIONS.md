@@ -2,6 +2,22 @@
 
 One paragraph per decision: context, decision, alternatives. Newest first.
 
+## 2026-11-26: Building in-scope modules on the planned freeze day
+
+**Context:** the day-by-day plan freezes the build on 25–26 Nov ("only bug fixes after this point"), but News (T3.4), Impact (T3.8), SEO (T3.9) and the ID card page (J5) were still "coming soon" placeholders. The Gate 3 demo script needs J5 and a News page for J6, and the Gate 3 pack requires "all 10 in-scope modules working". **Decision:** build these four in-scope items on 26 Nov rather than demo placeholders, with nothing outside the frozen scope added. Each item lands in its own commit so any one can be reverted alone if it destabilises the demo. **Alternative considered:** demo with the placeholders and push the modules to Phase 4. Rejected because it fails Gate 3 criteria 3 and 5 outright.
+
+## 2026-11-26: Contact values pass through `isConfigured()`
+
+**Context:** seeded `settings` hold `TODO(board): …` strings until the board answers. The Contact page printed them verbatim, and the ID card, vCard and `tel:` links would have done the same. **Decision:** one pure guard, `isConfigured()` in `src/lib/id-card/contact.ts`, rejects empty and `TODO(` values. Every contact channel renders only when configured. When none is configured, the ID card links to the contact form instead. **Alternative considered:** blank out the seed values. Rejected, because the placeholders are useful as a visible to-do in the admin Settings form.
+
+## 2026-11-26: ComingSoon placeholders removed
+
+The `ComingSoon` component and its `comingSoon` strings (decision of 2026-11-20) are deleted now that `/news`, `/impact` and `/id` are real pages. `InfoPanel`, the designed not-found pages and `globalNotFound` are unchanged.
+
+## 2026-11-26: Header shows "JLM" below the lg breakpoint
+
+**Context:** in Arabic at 390 px, the full site name wrapped to three lines and overflowed the 72 px header (risk #5). **Decision:** below `lg`, show the short mark "JLM" with the full name in a screen-reader-only span. The accessible name therefore starts with the visible text, which satisfies WCAG 2.5.3 (label in name); a plain `aria-label` failed axe in Arabic. From `lg` up, the full name shows as before.
+
 ## 2026-11-20 — "Coming soon" pages instead of 404s for unbuilt routes
 
 **Context:** the header links to `/impact` and `/news`, and the footer to `/id`, none of which exist yet (T3.8, T3.4 and the ID card task are still open), so visitors hit a bare 404. **Decision:** a shared `InfoPanel` (`src/components/sections/InfoPanel.tsx`) renders a tinted "Bientôt disponible / Coming soon / قريباً" page for those three routes (`ComingSoon`), marked `noindex` so placeholders don't get indexed, with translations in the `comingSoon` namespace. The same panel styles a designed not-found page (`src/app/[locale]/not-found.tsx` for `notFound()` calls). Because this app has multiple root layouts and a top-level `[locale]` segment, URLs that match no route at all never reach that file — for those, `experimental.globalNotFound` plus `src/app/global-not-found.tsx` renders a trilingual (fr/en/ar) 404 that carries its own fonts and styles, since it bypasses all layouts and has no locale context. **Trade-off:** `globalNotFound` is experimental in Next 16; if it ever breaks on an upgrade, delete the flag and that one file and unknown URLs fall back to Next's default 404 — nothing else depends on it. **Not done:** the real Impact, News and ID card pages — the coming-soon pages are placeholders, and the components for real figures (`StatsBand`, `FlagshipActions`) already exist for T3.8.

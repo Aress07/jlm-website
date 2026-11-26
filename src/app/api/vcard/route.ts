@@ -1,6 +1,7 @@
 import { getCardContact } from "@/lib/id-card/card-data";
 import { buildVCard } from "@/lib/id-card/contact";
-import { getSiteUrl } from "@/lib/seo/site-url";
+import { absoluteUrl, getSiteUrl } from "@/lib/seo/site-url";
+import { JLM_LOGO_PNG } from "@/lib/content/image-src";
 
 export const revalidate = 300;
 
@@ -16,6 +17,7 @@ export async function GET() {
     url: getSiteUrl(),
     note: "Jeunes Leaders Marocains — Ce qu'on transmet reste",
     contact,
+    logoUrl: absoluteUrl(JLM_LOGO_PNG),
   });
 
   return new Response(vcard, {

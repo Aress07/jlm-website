@@ -9,6 +9,7 @@ Carried over from `JLM_WEBSITE_EXECUTION_PLAN.md` Section 14, plus the Phase 3 c
    - If the board wants real (not test-mode) online card payments eventually: Stripe does not pay out to Moroccan bank accounts, so this needs a CMI merchant contract with a Moroccan bank, or a PayPal Business account — neither is a free/instant signup, both need board decisions and paperwork.
 3. **Bank details to display (holder, bank, RIB, IBAN) and the confirmation email address for pledges.** Blocking for `settings/bank` in Firestore and for T3.5's real-world correctness (risk #2, hard checkpoint 14 Nov in the day-by-day plan — **not met**, no treasurer contact happened). `donationsEnabled` is seeded `false` until this is answered.
 4. Brand: official logo files, colors, fonts, year(s) of the national champion title. `src/styles/tokens.css` uses a placeholder neutral palette, marked `TODO(board): brand colors`.
+   - **Partly answered 2026-11-26:** the JLM logo and the 9 project logos were taken from JLM's annual-report site and are now used on the site. Still open: master/vector logo files, brand colours (the site still uses a placeholder palette, and the logo uses green `#BFD66A`, red `#F4475A`, yellow `#F5B945`), fonts, champion title year.
 5. Official social accounts and contact channels (WhatsApp number, email, phone).
 6. Domain name and registrant.
 7. Consent process for photos of children, patients, entrepreneurs — signed forms already exist?

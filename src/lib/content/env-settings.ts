@@ -19,7 +19,24 @@ export type PublicSettings = {
   joinOpen: boolean;
 };
 
+import { z } from "zod";
+
 type Env = Record<string, string | undefined>;
+
+const emailSchema = z.string().email();
+
+/**
+ * A typo in the Vercel value (e.g. `contact@gmail,com`) must not be shown
+ * to visitors or put in mailto: links; it is dropped and logged instead.
+ */
+function validEmail(raw: string | undefined): string | undefined {
+  if (!raw) return undefined;
+  if (emailSchema.safeParse(raw).success) return raw;
+  console.warn(
+    `[settings] CONTACT_EMAIL is not a valid email address ("${raw}"); it is hidden on the site. Fix it in Vercel → Settings → Environment Variables.`,
+  );
+  return undefined;
+}
 
 const value = (env: Env, key: string) => {
   const v = env[key]?.trim();
@@ -30,7 +47,7 @@ export function settingsFromEnv(env: Env): PublicSettings {
   const rib = value(env, "BANK_RIB");
   return {
     contact: {
-      email: value(env, "CONTACT_EMAIL") ?? "",
+      email: validEmail(value(env, "CONTACT_EMAIL")) ?? "",
       phone: value(env, "CONTACT_PHONE"),
       whatsapp: value(env, "CONTACT_WHATSAPP"),
     },

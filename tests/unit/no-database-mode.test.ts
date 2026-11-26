@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { settingsFromEnv } from "@/lib/content/env-settings";
 import { sumPaidByCampaign } from "@/lib/payments/stripe-totals";
 import { seedCollection, seedDoc } from "@/lib/content/seed-source";
@@ -29,6 +29,15 @@ describe("settingsFromEnv", () => {
     });
     expect(s.donationsEnabled).toBe(true);
     expect(s.joinOpen).toBe(true);
+  });
+
+  it("hides a malformed contact email (comma instead of dot)", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    expect(
+      settingsFromEnv({ CONTACT_EMAIL: "contact@gmail,com" }).contact.email,
+    ).toBe("");
+    expect(warn).toHaveBeenCalled();
+    warn.mockRestore();
   });
 
   it("has no bank block without BANK_RIB and keeps donations off by default", () => {

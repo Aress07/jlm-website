@@ -43,8 +43,12 @@ export async function sendEmail(options: {
   subject: string;
   html: string;
 }) {
+  // Gmail and most SMTP providers only send "from" the authenticated
+  // account; any other From is rejected or lands in spam.
   const from =
-    process.env.BOARD_NOTIFICATION_EMAIL ?? "no-reply@jlm-ensamc.local";
+    process.env.SMTP_USER ??
+    process.env.BOARD_NOTIFICATION_EMAIL ??
+    "no-reply@jlm-ensamc.local";
   try {
     const info = await getTransporter().sendMail({ from, ...options });
     if ("message" in info) {

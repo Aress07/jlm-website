@@ -55,7 +55,27 @@
     "saveContact": "Enregistrer le contact",
     "share": "Partager",
     "seeFullSite": "Voir le site complet",
-    "print": "Version imprimable"
+    "print": "Version imprimable",
+    "title": "Carte d'identité numérique",
+    "description": "La carte de visite numérique de JLM ENSAM Casablanca : chiffres clés, pôles, contacts et QR code à partager.",
+    "figuresTitle": "Chiffres clés",
+    "polesTitle": "Nos trois pôles",
+    "contactTitle": "Nous contacter",
+    "contactFallback": "Écrivez-nous via le formulaire de contact",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "qrAlt": "QR code menant à cette carte d'identité numérique",
+    "printTitle": "Carte imprimable (A6)",
+    "printHint": "Recto : nom et QR code. Verso : coordonnées. Imprimez au format A6, une face par page.",
+    "printAction": "Imprimer",
+    "printFront": "Recto",
+    "printBack": "Verso",
+    "printNoContacts": "Retrouvez toutes nos coordonnées sur notre site.",
+    "backToCard": "Retour à la carte"
   },
   "fallback": {
     "translationInProgress": "Traduction en cours"

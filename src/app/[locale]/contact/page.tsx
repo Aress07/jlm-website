@@ -3,12 +3,18 @@ import type { Metadata } from "next";
 import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { isConfigured } from "@/lib/id-card/contact";
 
 export const metadata: Metadata = { title: "Contact" };
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
   const settings = await getPublicSettings();
+  // Seeded values are `TODO(board): …` placeholders until the board answers
+  // docs/OPEN_QUESTIONS.md #5 — never render those.
+  const email = settings?.contact.email;
+  const phone = settings?.contact.phone;
+  const whatsapp = settings?.contact.whatsapp;
 
   return (
     <Container className="py-12">
@@ -19,15 +25,19 @@ export default async function ContactPage() {
         <ContactForm />
 
         <aside className="flex flex-col gap-2 text-sm">
-          {settings?.contact.email && <p>{settings.contact.email}</p>}
-          {settings?.contact.phone && (
+          {isConfigured(email) && (
+            <a href={`mailto:${email}`} className="text-primary font-medium">
+              <bdi dir="ltr">{email}</bdi>
+            </a>
+          )}
+          {isConfigured(phone) && (
             <p>
-              <bdi dir="ltr">{settings.contact.phone}</bdi>
+              <bdi dir="ltr">{phone}</bdi>
             </p>
           )}
-          {settings?.contact.whatsapp && (
+          {isConfigured(whatsapp) && (
             <a
-              href={`https://wa.me/${settings.contact.whatsapp.replace(/\D/g, "")}`}
+              href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary font-medium"

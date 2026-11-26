@@ -55,7 +55,27 @@
     "saveContact": "Save contact",
     "share": "Share",
     "seeFullSite": "See the full site",
-    "print": "Printable version"
+    "print": "Printable version",
+    "title": "Digital ID card",
+    "description": "JLM ENSAM Casablanca's digital business card: key figures, pôles, contacts and a QR code to share.",
+    "figuresTitle": "Key figures",
+    "polesTitle": "Our three pôles",
+    "contactTitle": "Contact us",
+    "contactFallback": "Write to us through the contact form",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "qrAlt": "QR code linking to this digital ID card",
+    "printTitle": "Printable card (A6)",
+    "printHint": "Front: name and QR code. Back: contact details. Print on A6, one side per page.",
+    "printAction": "Print",
+    "printFront": "Front",
+    "printBack": "Back",
+    "printNoContacts": "Find all our contact details on our website.",
+    "backToCard": "Back to the card"
   },
   "fallback": {
     "translationInProgress": "Translation in progress"

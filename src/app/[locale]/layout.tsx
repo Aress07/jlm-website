@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree, Cairo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/lib/i18n/routing";
 import { SkipLink } from "@/components/layout/SkipLink";
@@ -60,6 +61,9 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  // Lets next-intl read the locale without request headers, so pages can be
+  // statically rendered and cached (ISR) instead of rendered per request.
+  setRequestLocale(locale);
 
   const dir = locale === "ar" ? "rtl" : "ltr";
 

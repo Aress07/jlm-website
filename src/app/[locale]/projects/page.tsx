@@ -1,10 +1,11 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getProjects } from "@/lib/content/projects";
 import { getPoles } from "@/lib/content/poles";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
+import { ProjectLogo } from "@/components/sections/ProjectLogo";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
 export function generateMetadata({
@@ -23,6 +24,7 @@ export default async function ProjectsPage({
   searchParams: Promise<{ pole?: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const { pole: poleFilter } = await searchParams;
   const t = await getTranslations("projects");
@@ -67,7 +69,10 @@ export default async function ProjectsPage({
             return (
               <Link key={project.slug} href={`/projects/${project.slug}`}>
                 <Card className="h-full transition-shadow hover:shadow-md">
-                  <h2 className="font-semibold">{name.text}</h2>
+                  <div className="flex items-center gap-3">
+                    <ProjectLogo src={project.logo} />
+                    <h2 className="font-semibold">{name.text}</h2>
+                  </div>
                   <p className="text-muted mt-1 text-sm">{tagline.text}</p>
                   {project.stats.slice(0, 2).map((stat) => (
                     <p key={stat.key} className="text-muted mt-2 text-xs">

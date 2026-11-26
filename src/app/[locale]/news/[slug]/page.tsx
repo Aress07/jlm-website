@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getPost, getPosts } from "@/lib/content/posts";
 import { getPartners } from "@/lib/content/partners";
@@ -45,8 +45,15 @@ export async function generateMetadata({
 const bodyClasses =
   "max-w-prose text-lg leading-relaxed [&_a]:text-primary [&_a]:underline [&_blockquote]:border-s-4 [&_blockquote]:border-black/10 [&_blockquote]:ps-4 [&_blockquote]:italic [&_figcaption]:text-muted [&_figcaption]:text-sm [&_h2]:mt-8 [&_h2]:text-2xl [&_h3]:mt-6 [&_h3]:text-xl [&_img]:rounded-2xl [&_li]:mt-1 [&_ol]:list-decimal [&_ol]:ps-6 [&_p]:mt-4 [&_ul]:list-disc [&_ul]:ps-6 [&>*:first-child]:mt-0";
 
+// No slugs are prerendered at build time (content lives in Firestore);
+// each page is rendered on first visit and then cached (ISR).
+export function generateStaticParams() {
+  return [];
+}
+
 export default async function PostPage({ params }: { params: Params }) {
   const { locale: localeParam, slug } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const post = await getPost(slug);
   if (!post) notFound();

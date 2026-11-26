@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPoles } from "@/lib/content/poles";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
@@ -20,6 +20,7 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const t = await getTranslations("about");
   const common = await getTranslations("common");

@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { AppLocale } from "@/lib/content/locale";
 import { getCardContact } from "@/lib/id-card/card-data";
@@ -42,7 +42,12 @@ const printCss = `
 const faceClasses =
   "id-face bg-bg flex h-[148mm] w-[105mm] flex-col items-center justify-center gap-5 overflow-hidden rounded-2xl border border-black/10 p-[10mm] text-center shadow-sm";
 
-export default async function IdCardPrintPage() {
+export default async function IdCardPrintPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale((await params).locale);
   const t = await getTranslations("idCard");
   const common = await getTranslations("common");
   const contact = await getCardContact();

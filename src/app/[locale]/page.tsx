@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { PoleCards } from "@/components/sections/PoleCards";
@@ -9,11 +9,13 @@ import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Link } from "@/lib/i18n/navigation";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
+import { ProjectLogo } from "@/components/sections/ProjectLogo";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
 import { getPublicSettings } from "@/lib/content/settings";
 import { isConfigured } from "@/lib/id-card/contact";
 import { jsonLd } from "@/lib/seo/metadata";
-import { getSiteUrl } from "@/lib/seo/site-url";
+import { absoluteUrl, getSiteUrl } from "@/lib/seo/site-url";
+import { JLM_LOGO_PNG } from "@/lib/content/image-src";
 
 export function generateMetadata({
   params,
@@ -23,7 +25,12 @@ export function generateMetadata({
   return staticPageMetadata(params, "home", "/");
 }
 
-export default async function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale((await params).locale);
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("home");
   const common = await getTranslations("common");
@@ -46,6 +53,7 @@ export default async function HomePage() {
     url: getSiteUrl(),
     foundingDate: "2014",
     slogan: common("motto"),
+    logo: absoluteUrl(JLM_LOGO_PNG),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Casablanca",
@@ -77,7 +85,10 @@ export default async function HomePage() {
                 return (
                   <Link key={project.slug} href={`/projects/${project.slug}`}>
                     <Card className="h-full hover:-translate-y-1 hover:shadow-md">
-                      <h3 className="text-xl">{name.text}</h3>
+                      <div className="flex items-center gap-3">
+                        <ProjectLogo src={project.logo} />
+                        <h3 className="text-xl">{name.text}</h3>
+                      </div>
                       <p className="text-muted mt-2 text-sm">{tagline.text}</p>
                     </Card>
                   </Link>

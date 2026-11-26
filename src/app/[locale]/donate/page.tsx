@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getCampaigns, getActiveCampaigns } from "@/lib/content/campaigns";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
@@ -21,6 +21,7 @@ export default async function DonateListPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const t = await getTranslations("donate");
 
@@ -51,6 +52,7 @@ export default async function DonateListPage({
                   <h3 className="text-xl">{title.text}</h3>
                   <div className="mt-3">
                     <ProgressBar
+                      label={t("progressLabel")}
                       receivedMAD={campaign.receivedMAD}
                       goalMAD={campaign.goalMAD}
                     />

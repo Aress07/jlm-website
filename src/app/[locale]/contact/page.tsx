@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -13,7 +13,12 @@ export function generateMetadata({
   return staticPageMetadata(params, "contact", "/contact");
 }
 
-export default async function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale((await params).locale);
   const t = await getTranslations("contact");
   const settings = await getPublicSettings();
   // Seeded values are `TODO(board): …` placeholders until the board answers

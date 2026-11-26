@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getPosts } from "@/lib/content/posts";
 import type { AppLocale } from "@/lib/content/locale";
@@ -32,6 +32,7 @@ export default async function NewsPage({
   searchParams: Promise<{ type?: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const { type: typeParam } = await searchParams;
   const parsedType = postTypeSchema.safeParse(typeParam);

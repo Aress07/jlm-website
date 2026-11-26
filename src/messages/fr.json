@@ -115,7 +115,8 @@
     "copied": "Copié !",
     "viewCampaign": "Voir la campagne",
     "payByCard": "Payer par carte",
-    "cardRedirectNotice": "Vous serez redirigé vers une page de paiement sécurisée pour saisir votre carte."
+    "cardRedirectNotice": "Vous serez redirigé vers une page de paiement sécurisée pour saisir votre carte.",
+    "progressLabel": "Progression de la collecte"
   },
   "projects": {
     "title": "Nos projets",

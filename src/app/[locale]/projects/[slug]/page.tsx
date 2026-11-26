@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getProject } from "@/lib/content/projects";
 import { getPlatformsByProject } from "@/lib/content/platforms";
@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { PlatformLink } from "@/components/sections/PlatformLink";
+import { ProjectLogo } from "@/components/sections/ProjectLogo";
 import { FallbackNote, fallbackAttrs } from "@/components/ui/FallbackNote";
 import { pageMetadata } from "@/lib/seo/metadata";
 
@@ -28,12 +29,19 @@ export async function generateMetadata({
   });
 }
 
+// No slugs are prerendered at build time (content lives in Firestore);
+// each page is rendered on first visit and then cached (ISR).
+export function generateStaticParams() {
+  return [];
+}
+
 export default async function ProjectDetailPage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const project = await getProject(slug);
   if (!project) notFound();
@@ -46,6 +54,7 @@ export default async function ProjectDetailPage({
 
   return (
     <Container className="py-12">
+      <ProjectLogo src={project.logo} size={96} className="mb-6" />
       <h1 className="text-4xl sm:text-5xl" {...fallbackAttrs(name.isFallback)}>
         {name.text}
       </h1>

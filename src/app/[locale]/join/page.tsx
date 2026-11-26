@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPoles } from "@/lib/content/poles";
 import { getPublicSettings } from "@/lib/content/settings";
 import { Container } from "@/components/ui/Container";
@@ -14,7 +14,12 @@ export function generateMetadata({
   return staticPageMetadata(params, "join", "/join");
 }
 
-export default async function JoinPage() {
+export default async function JoinPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale((await params).locale);
   const t = await getTranslations("join");
   const poles = await getPoles();
   const settings = await getPublicSettings();

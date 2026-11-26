@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getCampaign } from "@/lib/content/campaigns";
@@ -31,12 +31,19 @@ export async function generateMetadata({
   });
 }
 
+// No slugs are prerendered at build time (content lives in Firestore);
+// each page is rendered on first visit and then cached (ISR).
+export function generateStaticParams() {
+  return [];
+}
+
 export default async function CampaignPage({
   params,
 }: {
   params: Promise<{ locale: string; campaign: string }>;
 }) {
   const { locale: localeParam, campaign: slug } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const campaign = await getCampaign(slug);
   if (!campaign) notFound();
@@ -77,6 +84,7 @@ export default async function CampaignPage({
 
       <div className="mt-6 max-w-md">
         <ProgressBar
+          label={t("progressLabel")}
           receivedMAD={campaign.receivedMAD}
           goalMAD={campaign.goalMAD}
         />

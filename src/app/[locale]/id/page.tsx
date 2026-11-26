@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getStats } from "@/lib/content/stats";
 import { getPoles } from "@/lib/content/poles";
@@ -47,6 +47,7 @@ export default async function IdCardPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const t = await getTranslations("idCard");
   const common = await getTranslations("common");

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getPole } from "@/lib/content/poles";
 import { getProjectsByPole } from "@/lib/content/projects";
@@ -7,6 +7,7 @@ import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
+import { ProjectLogo } from "@/components/sections/ProjectLogo";
 import { FallbackNote, fallbackAttrs } from "@/components/ui/FallbackNote";
 import { pageMetadata } from "@/lib/seo/metadata";
 
@@ -32,12 +33,19 @@ const poleAccentVar: Record<string, string> = {
   "social-entrepreneurship": "var(--color-pole-entrepreneurship)",
 };
 
+// No slugs are prerendered at build time (content lives in Firestore);
+// each page is rendered on first visit and then cached (ISR).
+export function generateStaticParams() {
+  return [];
+}
+
 export default async function PolePage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const pole = await getPole(slug);
   if (!pole) notFound();
@@ -92,6 +100,7 @@ export default async function PolePage({
             return (
               <Link key={project.slug} href={`/projects/${project.slug}`}>
                 <Card className="h-full transition-shadow hover:shadow-md">
+                  <ProjectLogo src={project.logo} className="mb-3" />
                   <h3
                     className="font-semibold"
                     {...fallbackAttrs(projectName.isFallback)}

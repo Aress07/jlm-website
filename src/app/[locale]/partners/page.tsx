@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPartners } from "@/lib/content/partners";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
@@ -19,7 +19,12 @@ const tierTitleKey: Record<Partner["tier"], string> = {
   supplier: "suppliers",
 };
 
-export default async function PartnersPage() {
+export default async function PartnersPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale((await params).locale);
   const t = await getTranslations("partners");
   const partners = await getPartners();
 

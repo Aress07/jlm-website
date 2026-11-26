@@ -1,4 +1,5 @@
-import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPlatforms } from "@/lib/content/platforms";
 import { getProjects } from "@/lib/content/projects";
 import { resolveLocalized, type AppLocale } from "@/lib/content/locale";
@@ -6,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/lib/i18n/navigation";
 import { PlatformLink } from "@/components/sections/PlatformLink";
+import { isImageSrc } from "@/lib/content/image-src";
 import type { Platform } from "@/lib/validation/schemas";
 import { staticPageMetadata } from "@/lib/seo/static-metadata";
 
@@ -38,6 +40,7 @@ export default async function PlatformsHubPage({
   searchParams: Promise<{ type?: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const { type } = await searchParams;
   const t = await getTranslations("platforms");
@@ -107,7 +110,17 @@ export default async function PlatformsHubPage({
           <h2 className="mb-3 text-2xl">{t("prototypesTitle")}</h2>
           <div className="flex flex-col gap-2">
             {prototypes.map((platform) => (
-              <Card key={platform.id}>
+              <Card key={platform.id} className="flex flex-col gap-4">
+                {isImageSrc(platform.screenshot) && (
+                  <Image
+                    src={platform.screenshot}
+                    alt={resolveLocalized(platform.name, locale).text}
+                    width={640}
+                    height={400}
+                    sizes="(min-width: 768px) 640px, 100vw"
+                    className="aspect-[16/10] w-full max-w-xl rounded-2xl object-cover"
+                  />
+                )}
                 <PlatformLink platform={platform} locale={locale} />
               </Card>
             ))}

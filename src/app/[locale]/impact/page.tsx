@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getStats } from "@/lib/content/stats";
 import { getProjects } from "@/lib/content/projects";
@@ -44,6 +44,7 @@ export default async function ImpactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
+  setRequestLocale(localeParam);
   const locale = localeParam as AppLocale;
   const t = await getTranslations("impact");
 
@@ -120,7 +121,7 @@ export default async function ImpactPage({
                 return (
                   <div key={stat.key} className="flex flex-col-reverse gap-1">
                     <dt
-                      className="text-lg opacity-90"
+                      className="text-lg"
                       {...fallbackAttrs(label.isFallback)}
                     >
                       {label.text}

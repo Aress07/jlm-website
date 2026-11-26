@@ -115,7 +115,8 @@
     "copied": "Copied!",
     "viewCampaign": "View campaign",
     "payByCard": "Pay by card",
-    "cardRedirectNotice": "You will be taken to a secure payment page to enter your card."
+    "cardRedirectNotice": "You will be taken to a secure payment page to enter your card.",
+    "progressLabel": "Fundraising progress"
   },
   "projects": {
     "title": "Our projects",
